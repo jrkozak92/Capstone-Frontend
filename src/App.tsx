@@ -1,25 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import axios from 'axios'
 
-function App() {
+const App = () => {
+  const [hobbies, setHobbies] = useState<{id: number, name: string, description: string}[]>([])
+
+  const getHobbies = () => {
+    axios
+      .get('http://localhost:3000/hobbies')
+      .then((response) => {
+        console.log(response);
+        setHobbies(response.data)
+      }
+    )
+  }
+
+  useEffect(()=>{
+    getHobbies()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Welcome to HobbbyHelper!</h1>
+      <p>Feel free to scroll through our list of hobbies, or take our quiz to be shown a personalized list of hobbies you might enjoy!</p>
+      <h3>Hobbies</h3>
+      <ul>
+        { hobbies.map((hobby) => {
+          return <li key={hobby.id}>
+              <h5>{hobby.name}</h5>
+              <p>{hobby.description}</p>
+            </li>
+        })}
+      </ul>
+    </>
   );
 }
 
