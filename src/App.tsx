@@ -7,7 +7,7 @@ const App = () => {
 
   const getHobbies = () => {
     axios
-      .get('http://localhost:3000/hobbies')
+      .get('https://ancient-cliffs-31790.herokuapp.com/hobbies')
       .then((response) => {
         console.log(response);
         setHobbies(response.data)
