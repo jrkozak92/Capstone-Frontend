@@ -21,6 +21,7 @@ const App = () => {
 
   return (
     <>
+      <Nav/>
       <h1>Welcome to HobbbyHelper!</h1>
       <p>Feel free to scroll through our list of hobbies, or take our quiz to be shown a personalized list of hobbies you might enjoy!</p>
       <h3>Hobbies</h3>
