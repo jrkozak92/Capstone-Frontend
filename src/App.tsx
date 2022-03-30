@@ -4,15 +4,19 @@ import axios from 'axios'
 
 
 import { useAppDispatch, useAppSelector } from './app/hooks'
-import { getHobbies, Hobby, hobbySelectors } from './features/hobby/hobbySlice'
+import { getHobbies, deleteHobby, Hobby, hobbySelectors } from './features/hobby/hobbySlice'
 import { RootState } from './app/store'
 
 import Nav from './components/Nav'
+import Edit from './components/Edit'
 
 const App = () => {
   const dispatch = useAppDispatch()
   const hobbies = useAppSelector(hobbySelectors.selectAll)
 
+  const handleDelete = (id: number) => {
+    dispatch(deleteHobby(id))
+  }
 
   useEffect(()=>{
     dispatch(getHobbies())
@@ -29,6 +33,8 @@ const App = () => {
           return <li key={hobby.id}>
               <h5>{hobby.name}</h5>
               <p>{hobby.description}</p>
+              <button onClick={() => {handleDelete(hobby.id)}}>Delete</button>
+              <Edit hobby={hobby}/>
             </li>
         })}
       </ul>
