@@ -1,38 +1,213 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
+* {
+  margin:0;
+  padding:0;
+  font-family: 'Roboto', sans-serif;
+  box-sizing:border-box;
+}
+
+/* Darkest Blue: #0b132b,
+  Dark Blue: #1c2541,
+  Blue: #3a506b,
+  Teal: #5bc0be,
+  White: #ffffff */
+body {
+  background-color: #0b132b;
+}
+
+.container {
+  background-color: #0b132b;
+  color:white;
+  box-sizing:border-box;
   text-align: center;
+  width:100%;
+  height:100vh;
+  display: grid;
+  grid-template-columns: 5% 1fr 5%;
+  grid-template-rows: 8% 8% auto;
+  grid-template-areas:
+    "nav nav nav"
+    ". title ."
+    ". hobbies .";
+    gap:1.5em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul {
+  list-style:none;
+  margin:0;
+  padding: 0;
 }
+/* ========================================== */
+/* Nav Bar and Menu Stuff */
+/* ========================================== */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-bar {
+  background-color:#5bc0be;
+  grid-area: nav;
   display: flex;
-  flex-direction: column;
+  flex-flow: row nowrap;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.menu-item{
+  text-shadow:2px 2px 10px #0b132b;
+  padding:1em;
+  border-radius:8px;
+  border:2px solid #1c2541;
+  box-shadow:3px 3px #1c2541;
+  transition: all .25s ease-in;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.menu-item:hover{
+  text-shadow:2px 2px #0b132b;
+  border:2px solid #1c2541;
+  box-shadow:none;
+}
+
+.menu-dropdown{
+  z-index:1;
+  background-color:#3a506b;
+  width:max-content;
+  height:max-content;
+  position:absolute;
+  border: 2px solid #5bc0be;
+  border-top:0;
+  border-radius: 0 0 8px 8px;
+  transform:translateY(2%);
+}
+
+.add-form{
+  display:flex;
+  flex-flow: column nowrap;
+  justify-content:space-around;
+  align-items:center;
+  padding:1em;
+}
+
+
+/* ========================================== */
+/* Content Specific Stuff */
+/* ========================================== */
+.title {
+  box-sizing:border-box;
+  display:inline-block;
+  width:max-content;
+  padding:10px 20px;
+  align-self:center;
+  justify-self:center;
+  text-shadow:3px 3px 10px #0b132b;
+  text-align:center;
+  background-color: #3a506b;
+  border: 5px solid #5bc0be;
+  border-radius: 30px;
+  grid-area: title;
+  transition: all .1s ease-in;
+}
+
+.title:hover{
+  text-shadow:3px 3px #0b132b;
+}
+
+.hobbies {
+  padding:10px;
+  background-color: #1c2541;
+  border: 5px solid #3a506b;
+  border-radius: 10px;
+  grid-area: hobbies;
+}
+
+.hobbies > h3 {
+  margin:1em auto .25em;
+  font-size:2em;
+}
+
+.hobbies-list {
+  text-align:left;
+}
+
+.hobby {
+padding:.25em;
+display:grid;
+grid-template-columns: 85% 1fr 1fr;
+border-top: 1px solid #3a506b;
+}
+
+.hobby h5 {
+  font-size:1.25em;
+}
+
+.hobby p {
+  max-width:70vw;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.hobby > div {
+  padding:5px;
+}
+
+
+/* ========================================== */
+/* Form Specific Stuff */
+/* ========================================== */
+.form-title {
+  margin:1em 1em 0;
+  text-shadow:3px 3px 10px #0b132b;
+}
+
+.input{
+  padding:.25em;
+  width:90%;
+  margin: 1em;
+  border: 2px solid #0b132b;
+  border-radius: 5px;
+}
+
+textarea{
+  height:5em;
+  min-width:300px;
+}
+
+.add-input{}
+
+.edit-form {
+  right:8%;
+  transform-origin:top right;
+  transform:translateY(3.3em);
+}
+
+.edit-input{}
+
+.button{
+  color:white;
+  background-color:#1c2541;
+  font-weight:bold;
+  padding:.5em;
+  border:1px solid #5bc0be;
+  border-radius:5px;
+  cursor:pointer;
+  text-shadow:2px 2px 10px #3a506b;
+  box-shadow:3px 3px #1c2541;
+  transition: all .25s ease-in;
+}
+
+.button:hover{
+  text-shadow:2px 2px #3a506b;
+  box-shadow:none;
+}
+
+.add-submit{}
+
+.edit-submit{
+  text-shadow:2px 2px 10px #1c2541;
+  background-color:#5bc0be;
+}
+
+.edit-cancel{
+  background-color:crimson;
+  height:100%;
+  width:100%;
 }
