@@ -7,6 +7,7 @@ import { RootState } from '../app/store'
 
 const Edit = ( props:any ) => {
   const [hobby, setHobby] = useState<Hobby>(props.hobby)
+  const [showForm, setShowForm] = useState<boolean>(false)
   const dispatch = useAppDispatch()
 
   const handleChange = (event: any) => {
@@ -18,15 +19,27 @@ const Edit = ( props:any ) => {
     dispatch(updateHobby(updatedHobby))
   }
 
+  const toggleShowForm = () => {
+    setShowForm(!showForm)
+  }
+
   return (
     <>
-      <br/>
-      <br/>
-      <form onSubmit={(event)=>{handleSubmit(event, hobby)}}>
-        <input type="text" name="name" placeholder="What do you call it?" value={hobby.name} onChange={(event)=> {handleChange(event)}} />
-        <input type="text-area" name="description" placeholder="What is it about?" value={hobby.description} onChange={(event)=>{handleChange(event)}} />
-        <input type="submit" value="Edit Hobby" />
-      </form>
+      { showForm ?
+        <>
+          <div>
+            <form className="edit-form menu-dropdown" onSubmit={(event)=>{handleSubmit(event, hobby)}}>
+              <input className="input edit-input" type="text" name="name" placeholder="What do you call it?" value={hobby.name} onChange={(event)=> {handleChange(event)}} />
+              <textarea className="input edit-input" name="description" placeholder="What is it about?" value={hobby.description} onChange={(event)=>{handleChange(event)}}></textarea>
+              <input className="button edit-submit" type="submit" value="Edit Hobby" />
+            </form>
+            <button className="button edit-cancel" onClick={toggleShowForm}>Cancel</button>
+          </div>
+        </>
+          :
+        <button className="button edit-toggle" onClick={toggleShowForm}>Edit</button>
+      }
+
     </>
   )
 }
