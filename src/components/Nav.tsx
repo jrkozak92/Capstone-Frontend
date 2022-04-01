@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Add from './Add'
 import '../App.css';
+import { Routes, Route, NavLink } from 'react-router-dom'
 
 const Nav = () => {
   const [dropdown, setDropdown] = useState<string>('')
@@ -22,6 +23,9 @@ const Nav = () => {
             :
           null
         }
+      </div>
+      <div>
+        <NavLink className="menu-item" to="/hobbies" onClick={()=>{showMenu('')}}>Hobbies</NavLink>
       </div>
     </nav>
   )

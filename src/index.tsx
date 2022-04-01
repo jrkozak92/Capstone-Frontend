@@ -5,11 +5,23 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import store from './app/store'
+import Nav from './components/Nav'
+import List from './components/List'
+import Hobby from './components/Hobby'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route path="hobbies" element={<List />}>
+              <Route path=":hobbyId" element={<Hobby />}/>
+            </Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
