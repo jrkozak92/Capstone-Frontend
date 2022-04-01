@@ -5,7 +5,9 @@ const Hobby = ():any => {
   let params = useParams();
 
   return (
-    <h2>{params.hobbyId}</h2>
+    <div className="content">
+      <h2>{params.hobbyId}</h2>
+    </div>
   )
 }
 

@@ -26,12 +26,10 @@ body {
   min-height:910px;
   display: grid;
   grid-template-columns: 5% 1fr 5%;
-  grid-template-rows: 8% 8% auto;
+  grid-template-rows: 8% auto;
   grid-template-areas:
     "nav nav nav"
-    ". title ."
-    ". hobbies .";
-    gap:1.5em;
+    ". content .";
 }
 
 ul {
@@ -101,14 +99,13 @@ ul {
   display:inline-block;
   width:max-content;
   padding:10px 20px;
-  align-self:center;
-  justify-self:center;
   text-shadow:3px 3px 10px #0b132b;
   text-align:center;
+  align-self:center;
+  justify-self:center;
   background-color: #3a506b;
   border: 5px solid #5bc0be;
   border-radius: 30px;
-  grid-area: title;
   transition: all .1s ease-in;
 }
 
@@ -116,24 +113,41 @@ ul {
   text-shadow:3px 3px #0b132b;
 }
 
-.hobbies {
+.content {
   padding:10px;
   margin-bottom:2em;
   background-color: #1c2541;
-  border: 5px solid #3a506b;
-  border-radius: 10px;
-  grid-area: hobbies;
+  border-radius: 0 0 10px 10px;
+  grid-area: content;
 }
 
-.hobbies > h3 {
+.hobbies {
+  padding-top:1.5em;
+  display: grid;
+  grid-template-columns: atuo;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "title"
+    "hobbies-info"
+    "list";
+  gap:1.5em;
+}
+
+
+.section-title {
   margin:1em auto .25em;
   font-size:2em;
+}
+
+.hobbies-info {
+  grid-area:hobbies-info;
 }
 
 .hobbies-list {
   color:white;
   text-decoration:none;
   text-align:left;
+  grid-area: list;
 }
 
 .hobby {
@@ -151,7 +165,7 @@ ul {
 }
 
 .hobby:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   box-shadow:5px 5px 10px #0b132b;
   border: 1px solid #3a506b;
   border-radius:5px;

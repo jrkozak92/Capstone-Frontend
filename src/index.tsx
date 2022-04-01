@@ -16,9 +16,10 @@ ReactDOM.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
-            <Route path="hobbies" element={<List />}>
-              <Route path=":hobbyId" element={<Hobby />}/>
-            </Route>
+            <Route path="" element={<List />}/>
+            <Route path="hobbies" element={<List />}/>
+            <Route path="hobbies/:hobbyId" element={<Hobby />}/>
+            <Route path="about" element={<About />}/>
           </Route>
         </Routes>
       </BrowserRouter>

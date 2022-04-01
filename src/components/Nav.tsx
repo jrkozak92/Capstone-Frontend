@@ -27,6 +27,9 @@ const Nav = () => {
       <div>
         <NavLink className="menu-item" to="/hobbies" onClick={()=>{showMenu('')}}>Hobbies</NavLink>
       </div>
+      <div>
+        <NavLink className="menu-item about" to="/about" onClick={()=>{showMenu('')}}>About</NavLink>
+      </div>
     </nav>
   )
 }
