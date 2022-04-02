@@ -8,6 +8,7 @@ import store from './app/store'
 import Nav from './components/Nav'
 import List from './components/List'
 import Hobby from './components/Hobby'
+import About from './components/About'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 ReactDOM.render(

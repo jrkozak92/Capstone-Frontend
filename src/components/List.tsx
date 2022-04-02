@@ -20,6 +20,7 @@ const List = () => {
   const handleDelete = (id: number) => {
     dispatch(deleteHobby(id))
   }
+
   useEffect(()=>{
     dispatch(getHobbies())
   }, [])
@@ -33,18 +34,25 @@ const List = () => {
             <p>Feel free to scroll through our list of hobbies, or take our quiz to be shown a personalized list of hobbies you might enjoy!</p>
             <h3 className="section-title">All Hobbies</h3>
           </div>
+          { hobbies.length > 0 ?
           <div className="hobbies-list">
             { hobbies.map((hobby: Hobby) => {
-              return <Link to={`/hobbies/${hobby.id}`} key={hobby.id} className="hobby">
-                <div>
+              return <div key={hobby.id} className="hobby">
+                <Link to={`/hobbies/${hobby.id}`} className="body-link">
                   <h5>{hobby.name}</h5>
                   <p>{hobby.description}</p>
-                </div>
+                </Link>
                 <Edit hobby={hobby}/>
                 <button className="button" onClick={() => {handleDelete(hobby.id)}}>Delete</button>
-              </Link>
+              </div>
             })}
           </div>
+            :
+          <div>
+            <h3>Loading...</h3>
+          </div>
+
+          }
         </div>
       </div>
     </>

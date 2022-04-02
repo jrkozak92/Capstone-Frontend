@@ -1,4 +1,4 @@
-import { createSlice, createEntityAdapter, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, createEntityAdapter, createAsyncThunk, PayloadAction, createSelector } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { RootState } from '../../app/store'
 
@@ -25,19 +25,23 @@ export const updateHobby = createAsyncThunk('hobby/updateHobby', async (changedH
 
 export const addHobby = createAsyncThunk('hobby/addHobby', async (newHobby: { name: string, description: string }) => {
   return await axios.post('https://ancient-cliffs-31790.herokuapp.com/hobbies', newHobby)
-    .then((response: any)=> response.data[0]
-    )
+    .then((response: any) => response.data[0])
+})
+
+export const getHobbyById = createAsyncThunk('hobby/getHobbyById', async (id: number) => {
+  return await axios.get(`https://ancient-cliffs-31790.herokuapp.com/hobbies/${id}`).then((response) => response.data[0])
 })
 
 export const hobbyAdapter = createEntityAdapter<Hobby>({
   selectId: (hobby) => hobby.id,
+  sortComparer: (a, b) => a.name.localeCompare(b.name),
 })
 
 export const hobbySlice = createSlice({
   name: 'hobby',
   initialState: hobbyAdapter.getInitialState({ status: 'idle' }),
   reducers: {
-    hobbyAdded: hobbyAdapter.addOne
+    hobbyAdded: hobbyAdapter.addOne,
   },
   extraReducers: (builder) => {
     builder
@@ -72,6 +76,13 @@ export const hobbySlice = createSlice({
     .addCase(addHobby.fulfilled, (state, { payload }) => {
       state.status = 'idle'
       hobbyAdapter.addOne(state, payload)
+    })
+    .addCase(getHobbyById.pending, (state, { payload }) => {
+      state.status = 'loading'
+    })
+    .addCase(getHobbyById.fulfilled, (state, { payload }) => {
+      state.status = 'idle'
+      return payload
     })
   }
 })

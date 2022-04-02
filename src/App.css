@@ -124,7 +124,7 @@ ul {
 .hobbies {
   padding-top:1.5em;
   display: grid;
-  grid-template-columns: atuo;
+  grid-template-columns: auto;
   grid-template-rows: auto;
   grid-template-areas:
     "title"
@@ -151,8 +151,6 @@ ul {
 }
 
 .hobby {
-  color:white;
-  text-decoration:none;
   padding:.25em;
   background-color: #1c2541;
   display:grid;
@@ -171,6 +169,12 @@ ul {
   border-radius:5px;
 }
 
+.body-link {
+  color:white;
+  text-decoration:none;
+  padding:.25em;
+}
+
 .hobby h5 {
   font-size:1.25em;
 }
@@ -186,6 +190,42 @@ ul {
   padding:5px;
 }
 
+.hobby-detail {
+  padding:1.5em;
+  text-align:left;
+  display:grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows:auto;
+  grid-template-areas:
+    "name specs"
+    "description specs"
+    "resources resources";
+  gap:2em;
+}
+
+.hobby-name {
+  font-size:2em;
+  padding:1em;
+  border-bottom: 1px solid #5bc0be;
+  grid-area:name;
+}
+
+.hobby-description {
+  padding:1em;
+  grid-area:description;
+}
+
+.hobby-specs {
+  padding:1em;
+  border-left: 1px solid #5bc0be;
+  grid-area:specs;
+}
+
+.hobby-resources {
+  padding:1em;
+  border-top: 1px solid #5bc0be;
+  grid-area:resources;
+}
 
 /* ========================================== */
 /* Form Specific Stuff */
