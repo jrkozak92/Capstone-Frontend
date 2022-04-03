@@ -6,7 +6,7 @@ export interface Hobby {
   id: number,
   name: string,
   description: string,
-  specs?: {
+  specs: {
       graphPath: string,
       initialInvestment: {
         amount: string,
@@ -15,7 +15,7 @@ export interface Hobby {
       timePerSession: string,
       pickUpAndPlayAbility: string,
   },
-  aspectscores?: {
+  aspectscores: {
       intellectualChallenge: number,
       physicalChallenge: number,
       creativeFocus: number,
@@ -26,14 +26,14 @@ export interface Hobby {
       desiredTimeInvestment: number,
       technicalBarrierToEntry: number,
   },
-  keywords?: string[],
-  resources?: string[]
+  keywords: string[],
+  resources: string[]
 }
 
 export interface IdlessHobby {
   name: string,
   description: string,
-  specs?: {
+  specs: {
       graphPath: string,
       initialInvestment: {
         amount: string,
@@ -42,19 +42,19 @@ export interface IdlessHobby {
       timePerSession: string,
       pickUpAndPlayAbility: string,
   },
-  aspectscores?: {
-      intellectualChallenge: number,
-      physicalChallenge: number,
-      creativeFocus: number,
-      technicalFocus: number,
-      financialRequirement: number,
-      soloVsGroup: number,
-      problemSolvingVsExpression: number,
-      desiredTimeInvestment: number,
-      technicalBarrierToEntry: number,
+  aspectscores: {
+      intellectualChallenge: number | "",
+      physicalChallenge: number | "",
+      creativeFocus: number | "",
+      technicalFocus: number | "",
+      financialRequirement: number | "",
+      soloVsGroup: number | "",
+      problemSolvingVsExpression: number | "",
+      desiredTimeInvestment: number | "",
+      technicalBarrierToEntry: number | "",
   },
-  keywords?: string[],
-  resources?: string[]
+  keywords: string[],
+  resources: string[]
 }
 
 export const getHobbies = createAsyncThunk<any>('hobby/getHobbies', async () => {
@@ -68,7 +68,7 @@ export const deleteHobby = createAsyncThunk('hobby/deleteHobby', async (id: numb
 export const updateHobby = createAsyncThunk('hobby/updateHobby', async (changedHobby: Hobby) => {
   const updatedHobby = await axios.put(`https://ancient-cliffs-31790.herokuapp.com/hobbies/${changedHobby.id}`, changedHobby).then((response) => response.data[0])
   console.log('Response.data: ', updatedHobby)
-  const updateObj: {id: number, changes: Hobby} = {id: updatedHobby.id, changes: { id: updatedHobby.id, name: updatedHobby.name, description: updatedHobby.description, aspectscores: updatedHobby.aspectscores, keywords: updatedHobby.keywords, resources: updatedHobby.resources }}
+  const updateObj: {id: number, changes: Hobby} = {id: updatedHobby.id, changes: { id: updatedHobby.id, name: updatedHobby.name, description: updatedHobby.description, specs: updatedHobby.specs, aspectscores: updatedHobby.aspectscores, keywords: updatedHobby.keywords, resources: updatedHobby.resources }}
   return updateObj
 })
 
