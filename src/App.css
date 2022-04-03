@@ -26,12 +26,10 @@ body {
   min-height:910px;
   display: grid;
   grid-template-columns: 5% 1fr 5%;
-  grid-template-rows: 8% 8% auto;
+  grid-template-rows: 8% auto;
   grid-template-areas:
     "nav nav nav"
-    ". title ."
-    ". hobbies .";
-    gap:1.5em;
+    ". content .";
 }
 
 ul {
@@ -48,11 +46,16 @@ ul {
   grid-area: nav;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap:2em;
 }
 
 .menu-item{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:18px;
   text-shadow:2px 2px 10px #0b132b;
   padding:1em;
   border-radius:8px;
@@ -87,6 +90,14 @@ ul {
   padding:1em;
 }
 
+.back-button {
+  display:block;
+  color:white;
+  text-align:left;
+  text-decoration:none;
+  font-weight:bold;
+  margin:10px 3%;
+}
 
 /* ========================================== */
 /* Content Specific Stuff */
@@ -96,44 +107,103 @@ ul {
   display:inline-block;
   width:max-content;
   padding:10px 20px;
-  align-self:center;
-  justify-self:center;
   text-shadow:3px 3px 10px #0b132b;
   text-align:center;
+  align-self:center;
+  justify-self:center;
   background-color: #3a506b;
   border: 5px solid #5bc0be;
   border-radius: 30px;
-  grid-area: title;
-  transition: all .1s ease-in;
+  transition: all .25s ease-in;
 }
 
 .title:hover{
-  text-shadow:3px 3px #0b132b;
+  text-shadow:5px 5px #0b132b;
 }
 
-.hobbies {
+.content {
   padding:10px;
   margin-bottom:2em;
   background-color: #1c2541;
-  border: 5px solid #3a506b;
-  border-radius: 10px;
-  grid-area: hobbies;
+  border-radius: 0 0 10px 10px;
+  grid-area: content;
 }
 
-.hobbies > h3 {
+.hobbies {
+  padding-top:1.5em;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "title"
+    "hobbies-info"
+    "list";
+  gap:1.5em;
+}
+
+.section-title {
   margin:1em auto .25em;
   font-size:2em;
+  grid-area:hobby-title;
+}
+
+.blurb {
+  grid-area:blurb;
+}
+
+.search {
+  height:min-content;
+  padding:.75em;
+  margin:2.25em auto .5em;
+  color:white;
+  background-color:#1c2541;
+  font-weight:bold;
+  border: 1px solid #3a506b;
+  border-radius:1em;
+  grid-area:search;
+}
+
+
+.hobbies-info {
+  grid-area:hobbies-info;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  grid-template-rows:auto;
+  grid-template-areas:
+    "blurb blurb blurb"
+    ". hobby-title search";
 }
 
 .hobbies-list {
+  color:white;
+  text-decoration:none;
   text-align:left;
+  grid-area: list;
 }
 
 .hobby {
-padding:.25em;
-display:grid;
-grid-template-columns: 85% 1fr 1fr;
-border-top: 1px solid #3a506b;
+  padding:.25em;
+  background-color: #1c2541;
+  display:grid;
+  grid-template-columns: 85% 1fr 1fr;
+  border:1px solid transparent;
+  border-top: 1px solid #3a506b;
+  border-radius:0;
+  cursor:pointer;
+  transition: all .25s ease-in-out;
+}
+
+.hobby:hover {
+  transform: scale(1.02);
+  box-shadow:5px 5px 10px #0b132b;
+  border: 1px solid #3a506b;
+  border-radius:5px;
+}
+
+.body-link {
+  color:white;
+  text-decoration:none;
+  padding:.25em;
 }
 
 .hobby h5 {
@@ -151,6 +221,55 @@ border-top: 1px solid #3a506b;
   padding:5px;
 }
 
+.hobby-detail {
+  padding:1.5em;
+  text-align:left;
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 15% auto;
+  grid-template-areas:
+    "name specs"
+    "description specs"
+    "resources resources";
+  gap:2em;
+}
+
+.hobby-name {
+  font-size:2em;
+  padding:1em;
+  border-bottom: 1px solid #5bc0be;
+  grid-area:name;
+}
+
+.hobby-description {
+  padding:1em;
+  grid-area:description;
+}
+
+.hobby-specs {
+  padding:1em;
+  border-left: 1px solid #5bc0be;
+  grid-area:specs;
+}
+
+.hobby-resources {
+  padding:1em;
+  border-top: 1px solid #5bc0be;
+  grid-area:resources;
+}
+
+.spec-section {
+  padding:1em 0;
+}
+
+.spec-section > h4 {
+  padding:.5em 0;
+}
+
+.graph {
+  margin:10px 0;
+  width:100%;
+}
 
 /* ========================================== */
 /* Form Specific Stuff */
