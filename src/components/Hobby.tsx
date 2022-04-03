@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react'
 import '../App.css'
-import { useParams} from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
 import { getHobbies, deleteHobby, Hobby, hobbySelectors } from '../features/hobby/hobbySlice'
 import store from '../app/store'
+import inverseLog from "../assets/SVTInverseLog.png"
+import exponential from "../assets/SVTExponential.png"
+import linear from "../assets/SVTLinear.png"
+import plateus from "../assets/SVTPlateus.png"
 
 const HobbyDetail = ():any => {
   let params = useParams();
@@ -11,17 +15,13 @@ const HobbyDetail = ():any => {
   let hobbyId: any = Number(params.hobbyId)
   const hobby: any = useAppSelector((state) => hobbySelectors.selectById(state, hobbyId))
 
-  // const getHobby = (): any => {
-  //   const hobArr = hobbies.filter(hobby => hobby.id === hobbyId)
-  //
-  // }
-
   useEffect(()=>{
     dispatch(getHobbies())
   }, [])
 
   return (
     <div className="content">
+      <Link to="/hobbies" className="back-button">&lt; Back</Link>
       { hobby === undefined ?
         <div className="loading">
           <h2>Loading...</h2>
@@ -32,7 +32,22 @@ const HobbyDetail = ():any => {
           <p className="hobby-description">{hobby.description}</p>
           <div className="hobby-specs">
             <h3>Specs</h3>
-            Placeholder information
+            <section className="spec-section">
+              <h4>Expertise VS Time Invested</h4>
+              <img className="graph" src={inverseLog}/>
+            </section>
+            <section className="spec-section">
+              <h4>Initial Investment</h4>
+              <p>$100, equipment</p>
+            </section>
+            <section className="spec-section">
+              <h4>Time Per Session</h4>
+              <p>&lt;1min - 1hr</p>
+            </section>
+            <section className="spec-section">
+              <h4>Pick-up-and-Play Friendly?</h4>
+              <p>Very!</p>
+            </section>
           </div>
           <div className="hobby-resources">
             <h3>Resources</h3>

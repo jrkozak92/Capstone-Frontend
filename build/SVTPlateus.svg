@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="408"
+   viewBox="0 0 512 408"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be8, 2022-02-05)"
+   sodipodi:docname="SVTPlateus.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="px"
+     showgrid="false"
+     height="408px"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="235.113"
+     inkscape:cy="140.3607"
+     inkscape:window-width="1792"
+     inkscape:window-height="1067"
+     inkscape:window-x="1080"
+     inkscape:window-y="825"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient39374">
+      <stop
+         style="stop-color:#00ff00;stop-opacity:1"
+         offset="0"
+         id="stop39370" />
+      <stop
+         style="stop-color:#ff0000;stop-opacity:1"
+         offset="1"
+         id="stop39372" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient39374"
+       id="linearGradient39376"
+       x1="249.61142"
+       y1="266.00488"
+       x2="304.84915"
+       y2="36.195175"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 67.968825,7.85752 V 162.98839 267.77408 H 505.19831"
+       id="path358-4"
+       sodipodi:nodetypes="cccc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none"
+       x="251.34706"
+       y="332"
+       id="text4959"><tspan
+         sodipodi:role="line"
+         id="tspan4957"
+         x="251.34706"
+         y="332"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:26.6667px;font-family:'Hiragino Sans';-inkscape-font-specification:'Hiragino Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Time</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none"
+       x="109.48701"
+       y="-6.4502192"
+       id="text7404"
+       transform="rotate(90)"><tspan
+         sodipodi:role="line"
+         id="tspan7402"
+         x="109.48701"
+         y="-6.4502192"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:26.6667px;font-family:'Hiragino Sans';-inkscape-font-specification:'Hiragino Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Skill</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+       x="-29.5"
+       y="139.5"
+       id="text8428"><tspan
+         sodipodi:role="line"
+         id="tspan8426"
+         x="-29.5"
+         y="139.5"></tspan></text>
+    <path
+       style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 110,269.5 v 9"
+       id="path9481" />
+    <path
+       style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 263.875,269.5 v 9"
+       id="path9674" />
+    <path
+       style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 417.75,269.5 v 9"
+       id="path9676" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:18.6667px;line-height:1.25;font-family:'Hiragino Sans';-inkscape-font-specification:'Hiragino Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none"
+       x="84.834419"
+       y="292"
+       id="text9680"><tspan
+         sodipodi:role="line"
+         id="tspan9678"
+         x="84.834419"
+         y="292"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:18.6667px;font-family:'Hiragino Sans';-inkscape-font-specification:'Hiragino Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Days</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:18.6667px;line-height:1.25;font-family:'Hiragino Sans';-inkscape-font-specification:'Hiragino Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none"
+       x="225.94901"
+       y="293.62399"
+       id="text13092"><tspan
+         sodipodi:role="line"
+         id="tspan13090"
+         x="225.94901"
+         y="293.62399"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:18.6667px;font-family:'Hiragino Sans';-inkscape-font-specification:'Hiragino Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Months</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:18.6667px;line-height:1.25;font-family:'Hiragino Sans';-inkscape-font-specification:'Hiragino Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none"
+       x="389.77203"
+       y="293.62399"
+       id="text13096"><tspan
+         sodipodi:role="line"
+         id="tspan13094"
+         x="389.77203"
+         y="293.62399"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:18.6667px;font-family:'Hiragino Sans';-inkscape-font-specification:'Hiragino Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Years</tspan></text>
+    <path
+       style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 66.275888,260.66511 h -9"
+       id="path19035" />
+    <path
+       style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 66.275888,183.11906 h -9"
+       id="path19037" />
+    <path
+       style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 66.275888,105.57302 h -9"
+       id="path19039" />
+    <path
+       style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 66.275888,28.02698 h -9"
+       id="path19041" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.3333px;line-height:1.25;font-family:'Hiragino Sans';-inkscape-font-specification:'Hiragino Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none"
+       x="245.41296"
+       y="24.185413"
+       id="text19045"
+       transform="rotate(75)"
+       inkscape:transform-center-x="13.659436"
+       inkscape:transform-center-y="2.6489081"><tspan
+         sodipodi:role="line"
+         id="tspan19043"
+         x="245.41296"
+         y="24.185413"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.3333px;font-family:'Hiragino Sans';-inkscape-font-specification:'Hiragino Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Noob</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.3333px;line-height:1.25;font-family:'Hiragino Sans';-inkscape-font-specification:'Hiragino Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none"
+       x="149.80032"
+       y="3.5996766"
+       id="text21813"
+       transform="rotate(75)"
+       inkscape:transform-center-x="13.170027"
+       inkscape:transform-center-y="2.3452342"><tspan
+         sodipodi:role="line"
+         id="tspan21811"
+         x="149.80032"
+         y="3.5996766"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.3333px;font-family:'Hiragino Sans';-inkscape-font-specification:'Hiragino Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Competent</tspan><tspan
+         sodipodi:role="line"
+         x="149.80032"
+         y="20.2663"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.3333px;font-family:'Hiragino Sans';-inkscape-font-specification:'Hiragino Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff"
+         id="tspan28771" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.3333px;line-height:1.25;font-family:'Hiragino Sans';-inkscape-font-specification:'Hiragino Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none"
+       x="82.417313"
+       y="-16.378338"
+       id="text21817"
+       transform="rotate(75)"
+       inkscape:transform-center-x="12.957526"
+       inkscape:transform-center-y="2.3435095"><tspan
+         sodipodi:role="line"
+         id="tspan21815"
+         x="82.417313"
+         y="-16.378338"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.3333px;font-family:'Hiragino Sans';-inkscape-font-specification:'Hiragino Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Hobbyist</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.3333px;line-height:1.25;font-family:'Hiragino Sans';-inkscape-font-specification:'Hiragino Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none"
+       x="15.935334"
+       y="-36.489147"
+       id="text21821"
+       transform="rotate(75)"
+       inkscape:transform-center-x="13.054117"
+       inkscape:transform-center-y="2.3452349"><tspan
+         sodipodi:role="line"
+         id="tspan21819"
+         x="15.935334"
+         y="-36.489147"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.3333px;font-family:'Hiragino Sans';-inkscape-font-specification:'Hiragino Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Expert</tspan></text>
+    <path
+       style="color:#000000;fill:url(#linearGradient39376);stroke-linecap:round;-inkscape-stroke:none;fill-opacity:1"
+       d="m 504.31641,35.277344 a 1.5,1.5 0 0 0 -1.09766,0.330078 c 0,0 -38.00389,30.998714 -83.08789,42.123047 -38.13132,9.408779 -74.03623,10.576362 -90.17188,13.423828 -18.26591,3.223395 -30.09595,9.845883 -39.46289,18.177733 -9.36693,8.33186 -16.28709,18.28656 -25.04492,28.27149 l -0.10351,0.11718 -0.0762,0.13672 c 0,0 -2.99678,5.37323 -10.95312,11.85938 -7.95634,6.48614 -20.79467,13.96863 -40.35352,17.81054 -52.21629,10.25677 -70.85617,11.72969 -93.21679,23.47852 -11.51857,6.05215 -23.992035,24.25063 -34.000003,41.00195 -10.007968,16.75132 -17.302735,32.07031 -17.302735,32.07031 a 1.5,1.5 0 0 0 0.708985,2 1.5,1.5 0 0 0 1.998047,-0.71093 c 0,0 7.247715,-15.20927 17.171875,-31.82032 9.92416,-16.61104 22.772491,-34.60836 32.818361,-39.88671 21.84354,-11.47715 40.10573,-12.9173 92.40039,-23.18946 20.03908,-3.93624 33.36282,-11.65759 41.66992,-18.42968 8.03145,-6.54738 11.27648,-12.08322 11.49414,-12.45899 8.89035,-10.13601 15.75802,-19.97994 24.7832,-28.00781 9.02519,-8.02787 20.19374,-14.326239 37.99024,-17.466798 15.51038,-2.737125 51.86909,-3.963129 90.36914,-13.462891 45.95937,-11.340327 84.26758,-42.71289 84.26758,-42.71289 a 1.5,1.5 0 0 0 0.21093,-2.111329 1.5,1.5 0 0 0 -1.01171,-0.542968 z"
+       id="path38778" />
+  </g>
+</svg>

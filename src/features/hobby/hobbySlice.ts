@@ -5,7 +5,56 @@ import { RootState } from '../../app/store'
 export interface Hobby {
   id: number,
   name: string,
-  description: string
+  description: string,
+  specs?: {
+      graphPath: string,
+      initialInvestment: {
+        amount: string,
+        equipment: string
+      },
+      timePerSession: string,
+      pickUpAndPlayAbility: string,
+  },
+  aspectscores?: {
+      intellectualChallenge: number,
+      physicalChallenge: number,
+      creativeFocus: number,
+      technicalFocus: number,
+      financialRequirement: number,
+      soloVsGroup: number,
+      problemSolvingVsExpression: number,
+      desiredTimeInvestment: number,
+      technicalBarrierToEntry: number,
+  },
+  keywords?: string[],
+  resources?: string[]
+}
+
+export interface IdlessHobby {
+  name: string,
+  description: string,
+  specs?: {
+      graphPath: string,
+      initialInvestment: {
+        amount: string,
+        equipment: string
+      },
+      timePerSession: string,
+      pickUpAndPlayAbility: string,
+  },
+  aspectscores?: {
+      intellectualChallenge: number,
+      physicalChallenge: number,
+      creativeFocus: number,
+      technicalFocus: number,
+      financialRequirement: number,
+      soloVsGroup: number,
+      problemSolvingVsExpression: number,
+      desiredTimeInvestment: number,
+      technicalBarrierToEntry: number,
+  },
+  keywords?: string[],
+  resources?: string[]
 }
 
 export const getHobbies = createAsyncThunk<any>('hobby/getHobbies', async () => {
@@ -19,11 +68,11 @@ export const deleteHobby = createAsyncThunk('hobby/deleteHobby', async (id: numb
 export const updateHobby = createAsyncThunk('hobby/updateHobby', async (changedHobby: Hobby) => {
   const updatedHobby = await axios.put(`https://ancient-cliffs-31790.herokuapp.com/hobbies/${changedHobby.id}`, changedHobby).then((response) => response.data[0])
   console.log('Response.data: ', updatedHobby)
-  const updateObj: {id: number, changes: Hobby} = {id: updatedHobby.id, changes: { id: updatedHobby.id, name: updatedHobby.name, description: updatedHobby.description }}
+  const updateObj: {id: number, changes: Hobby} = {id: updatedHobby.id, changes: { id: updatedHobby.id, name: updatedHobby.name, description: updatedHobby.description, aspectscores: updatedHobby.aspectscores, keywords: updatedHobby.keywords, resources: updatedHobby.resources }}
   return updateObj
 })
 
-export const addHobby = createAsyncThunk('hobby/addHobby', async (newHobby: { name: string, description: string }) => {
+export const addHobby = createAsyncThunk('hobby/addHobby', async (newHobby: IdlessHobby) => {
   return await axios.post('https://ancient-cliffs-31790.herokuapp.com/hobbies', newHobby)
     .then((response: any) => response.data[0])
 })
