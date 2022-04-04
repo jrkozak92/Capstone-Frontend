@@ -67,7 +67,6 @@ export const deleteHobby = createAsyncThunk('hobby/deleteHobby', async (id: numb
 
 export const updateHobby = createAsyncThunk('hobby/updateHobby', async (changedHobby: Hobby) => {
   const updatedHobby = await axios.put(`https://ancient-cliffs-31790.herokuapp.com/hobbies/${changedHobby.id}`, changedHobby).then((response) => response.data[0])
-  console.log('Response.data: ', updatedHobby)
   const updateObj: {id: number, changes: Hobby} = {id: updatedHobby.id, changes: { id: updatedHobby.id, name: updatedHobby.name, description: updatedHobby.description, specs: updatedHobby.specs, aspectscores: updatedHobby.aspectscores, keywords: updatedHobby.keywords, resources: updatedHobby.resources }}
   return updateObj
 })
@@ -116,7 +115,6 @@ export const hobbySlice = createSlice({
     })
     .addCase(updateHobby.fulfilled, (state, { payload }) => {
       state.status = 'idle'
-      console.log(payload);
       hobbyAdapter.updateOne(state, payload)
     })
     .addCase(addHobby.pending, (state) => {

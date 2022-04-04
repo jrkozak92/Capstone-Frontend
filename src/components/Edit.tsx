@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
-import { Hobby, updateHobby, hobbySelectors, getHobbies } from '../features/hobby/hobbySlice'
+import { Hobby, deleteHobby, updateHobby, hobbySelectors, getHobbies } from '../features/hobby/hobbySlice'
 import { RootState } from '../app/store'
 
 import inverseLog from "../assets/SVTInverseLog.png"
@@ -50,9 +50,13 @@ const Edit = ():any => {
   const handleSubmit = (updatedHobby: Hobby) => {
     updatedHobby.keywords = (`'${updatedHobby.keywords}'`)
     updatedHobby.resources = (`'${updatedHobby.resources}'`)
-    console.log(updatedHobby)
     dispatch(updateHobby(updatedHobby))
     navigate(`/hobbies/${hobbyId}`)
+  }
+
+  const handleDelete = (id: number) => {
+    dispatch(deleteHobby(id))
+    navigate('/hobbies')
   }
 
   useEffect(()=>{
@@ -68,6 +72,7 @@ const Edit = ():any => {
     <div className="content">
       <div className="nav-controls">
         <Link to="/hobbies" className="button">&lt; Back to All Hobbies</Link>
+        <button className="button delete-button" onClick={() => {handleDelete(hobbyId)}}>Delete This Hobby</button>
         <div>
           <Link to={`/hobbies/${hobbyId}`} className="button edit-save" onClick={()=>{handleSubmit(updatedHobby)}}>Save</Link>
           <Link to={`/hobbies/${hobbyId}`} className="button edit-cancel">Cancel</Link>
