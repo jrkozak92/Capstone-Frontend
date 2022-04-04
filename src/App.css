@@ -91,12 +91,28 @@ ul {
 }
 
 .back-button {
-  display:block;
+  display:inline-block;
   color:white;
   text-align:left;
   text-decoration:none;
   font-weight:bold;
   margin:10px 3%;
+}
+
+.edit-button {
+  display:inline-block;
+  color:white;
+  text-align:right;
+  text-decoration:none;
+  font-weight:bold;
+  margin:10px 3%;
+}
+
+.nav-controls {
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content:space-between;
+  align-items:center;
 }
 
 /* ========================================== */
@@ -226,19 +242,47 @@ ul {
   text-align:left;
   display:grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 15% auto;
+  grid-template-rows: 15vh auto;
   grid-template-areas:
     "name specs"
     "description specs"
-    "resources resources";
+    "resources resources"
+    "scores scores";
   gap:2em;
+}
+
+.hobby-name-keywords {
+  grid-area:name;
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #5bc0be;
 }
 
 .hobby-name {
   font-size:2em;
   padding:1em;
-  border-bottom: 1px solid #5bc0be;
-  grid-area:name;
+}
+
+.keyword-display {
+  justify-self:end;
+  font-size:18px;
+  width:40%;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows:1fr;
+  align-content:center;
+  gap:.75em;
+  text-align:center;
+  padding:0 .5em;
+}
+
+.display-keyword {
+  background-color:#3a506b;
+  padding:.75em .25em;
+  overflow-wrap: break-word;
+  hyphens:auto;
 }
 
 .hobby-description {
@@ -306,16 +350,10 @@ textarea{
   height:15vh;
 }
 
-.edit-form {
-  right:8%;
-  transform-origin:top right;
-  transform:translateY(3.3em);
-}
-
-.edit-input{}
 
 .button{
   color:white;
+  text-decoration:none;
   background-color:#1c2541;
   font-weight:bold;
   padding:.5em;
@@ -332,7 +370,13 @@ textarea{
   box-shadow:none;
 }
 
-.add-submit{}
+
+.edit-save{
+  margin-right: 1em;
+  background-color:#5bc0be;
+  border:1px solid #1c2541;
+  text-shadow:3px 3px 10px #0b132b;
+}
 
 .edit-submit{
   text-shadow:2px 2px 10px #1c2541;
@@ -341,8 +385,6 @@ textarea{
 
 .edit-cancel{
   background-color:crimson;
-  height:100%;
-  width:100%;
 }
 
 .radio-graphs {
@@ -385,6 +427,12 @@ input[type="radio"]:checked + img {
   width:90%;
 }
 
+.edit-graph {
+  display:inline;
+  width:90%;
+  cursor:pointer;
+}
+
 .graph-path-box {
   height:100%;
   display:flex;
@@ -394,10 +442,15 @@ input[type="radio"]:checked + img {
 }
 
 .scores-fields {
+  grid-area:scores;
   display:grid;
   grid-template-columns: 1fr;
   grid-template-rows: 2em auto;
   width:100%;
+}
+
+.scores-fields > legend {
+  text-align:center;
 }
 
 .scores-fields > label {
@@ -410,6 +463,7 @@ input[type="radio"]:checked + img {
 }
 
 .scores-fields > h4 {
+  place-self:center;
   padding:.5em;
 }
 
@@ -446,4 +500,24 @@ input[type="radio"]:checked + img {
   padding:.75em .25em;
   overflow-wrap: break-word;
   hyphens:auto;
+}
+
+.keyword-edit-display {
+  width:100%;
+}
+
+.edit-keyword {
+  color:white;
+  padding:.5em;
+  font-weight:bold;
+  width:100%;
+}
+
+#edit-description {
+  height:100%;
+  grid-area:description;
+}
+
+::placeholder {
+  color:white;
 }

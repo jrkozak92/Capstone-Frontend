@@ -21,14 +21,24 @@ const HobbyDetail = ():any => {
 
   return (
     <div className="content">
-      <Link to="/hobbies" className="back-button">&lt; Back</Link>
+      <div className="nav-controls">
+        <Link to="/hobbies" className="button">&lt; Back</Link>
+        <Link to={`/edit/${hobbyId}`} className="button">Edit This Hobby</Link>
+      </div>
       { hobby === undefined ?
         <div className="loading">
           <h2>Loading...</h2>
         </div>
           :
         <div className="hobby-detail">
-          <h2 className="hobby-name">{hobby.name}</h2>
+          <div className="hobby-name-keywords">
+            <h2 className="hobby-name">{hobby.name}</h2>
+            <div className="keyword-display">
+            {hobby.keywords ? hobby.keywords[0].split(', ').map((keyword: string, i: number)=> {
+              return <div className="display-keyword" key={i}>{keyword}</div>
+            }) : null}
+            </div>
+          </div>
           <p className="hobby-description">{hobby.description}</p>
           <div className="hobby-specs">
             <h3>Specs</h3>
@@ -52,7 +62,10 @@ const HobbyDetail = ():any => {
             </section>
             <section className="spec-section">
               <h4>Initial Investment</h4>
-              <div>{hobby.specs.initialInvestment.amount}</div> <div>{hobby.specs.initialInvestment.equipment}</div>
+              <h5>Cost:</h5>
+              <div>{hobby.specs.initialInvestment.amount}</div>
+              <h5>Equipment:</h5>
+              <div>{hobby.specs.initialInvestment.equipment}</div>
             </section>
             <section className="spec-section">
               <h4>Time Per Session</h4>

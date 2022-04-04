@@ -47,7 +47,6 @@ const List = () => {
                   <h5>{hobby.name}</h5>
                   <p>{hobby.description}</p>
                 </Link>
-                <Edit hobby={hobby}/>
                 <button className="button" onClick={() => {handleDelete(hobby.id)}}>Delete</button>
               </div>
             })}

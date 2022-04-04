@@ -26,8 +26,8 @@ export interface Hobby {
       desiredTimeInvestment: number,
       technicalBarrierToEntry: number,
   },
-  keywords: string[],
-  resources: string[]
+  keywords: string[] | string,
+  resources: string[] | string
 }
 
 export interface IdlessHobby {

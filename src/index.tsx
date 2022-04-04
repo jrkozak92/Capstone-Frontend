@@ -10,6 +10,7 @@ import List from './components/List'
 import Hobby from './components/Hobby'
 import About from './components/About'
 import Add from './components/Add'
+import Edit from './components/Edit'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 ReactDOM.render(
@@ -22,6 +23,7 @@ ReactDOM.render(
             <Route path="hobbies" element={<List />}/>
             <Route path="hobbies/:hobbyId" element={<Hobby />}/>
             <Route path="add" element={<Add />} />
+            <Route path="edit/:hobbyId" element={<Edit />} />
             <Route path="about" element={<About />}/>
           </Route>
         </Routes>
