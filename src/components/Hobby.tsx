@@ -34,7 +34,21 @@ const HobbyDetail = ():any => {
             <h3>Specs</h3>
             <section className="spec-section">
               <h4>Expertise VS Time Invested</h4>
-              <img className="graph" src={hobby.specs.graphPath}/>
+              {hobby.specs.graphPath === 'inverseLog' ?
+                <img className="graph" src={inverseLog}/>
+                :
+                hobby.specs.graphPath === 'linear' ?
+                  <img className="graph" src={linear}/>
+                  :
+                  hobby.specs.graphPath === 'exponential' ?
+                    <img className="graph" src={exponential}/>
+                    :
+                    hobby.specs.graphPath === 'plateus' ?
+                      <img className="graph" src={plateus}/>
+                      :
+                      undefined
+              }
+
             </section>
             <section className="spec-section">
               <h4>Initial Investment</h4>
