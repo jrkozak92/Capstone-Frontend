@@ -4,6 +4,11 @@ import { addHobby, IdlessHobby } from '../features/hobby/hobbySlice'
 import axios from 'axios'
 import '../App.css'
 
+import inverseLog from "../assets/SVTInverseLog.png"
+import exponential from "../assets/SVTExponential.png"
+import linear from "../assets/SVTLinear.png"
+import plateus from "../assets/SVTPlateus.png"
+
 const Add = () => {
   const [hobby, setHobby] = useState<IdlessHobby>(
     {
@@ -29,8 +34,8 @@ const Add = () => {
           desiredTimeInvestment: -1,
           technicalBarrierToEntry: -1,
       },
-      keywords: [],
-      resources: []
+      keywords: "",
+      resources: ""
     }
   )
 
@@ -83,8 +88,8 @@ const Add = () => {
           desiredTimeInvestment: "",
           technicalBarrierToEntry: "",
       },
-      keywords: [],
-      resources: []
+      keywords: "",
+      resources: ""
     })
   }
 
@@ -92,30 +97,73 @@ const Add = () => {
     <div className="content">
       <h4 className="form-title">Add a Hobby</h4>
       <form className="add-form" onSubmit={(event)=>{handleSubmit(event)}}>
-        <input id="name" className="input add-input" type="text" name="name" placeholder="What do you call it?" value={hobby.name} onChange={(event)=> {handleChange(event)}} />
-        <textarea id="description" className="input add-input" name="description" placeholder="What is it about?" value={hobby.description} onChange={(event)=>{handleChange(event)}}></textarea>
-        <fieldset>
-        <legend>Experience Curves</legend>
-
-          <input id="graph-path" className="input add-input" type="radio" name="specs.graphPath" />
+        <input id="name" className="input add-input" type="text" name="name" placeholder="What's it called?" value={hobby.name} onChange={(event)=> {handleChange(event)}} />
+        <textarea id="description" className="input add-input" name="description" placeholder="What is it?" value={hobby.description} onChange={(event)=>{handleChange(event)}}></textarea>
+        <fieldset className="radio-graphs">
+          <legend>Experience Curves</legend>
+          <label className="graph-path-box" htmlFor="graph-path-inverseLog">
+            <h4 className="graph-title">Inverse Log</h4>
+            <p className="graph-description">Easy to learn the basics, but marginal gains after a certain point.</p>
+            <input id="graph-path-inverseLog" className="input add-input graph-img" type="radio" name="specs.graphPath" value="inverseLog" defaultChecked/>
+            <img className="graph" src={inverseLog}/>
+          </label>
+          <label className="graph-path-box" htmlFor="graph-path-linear">
+            <h4 className="graph-title">Linear</h4>
+            <p className="graph-description">You get out what you put in.</p>
+            <input id="graph-path-linear" className="input add-input graph-img" type="radio" name="specs.graphPath" value="linear"/>
+            <img className="graph" src={linear}/>
+          </label>
+          <label className="graph-path-box" htmlFor="graph-path-exponential">
+            <h4 className="graph-title">Exponential</h4>
+            <p className="graph-description">Tough to pick up, but quick to master once you get it.</p>
+            <input id="graph-path-exponential" className="input add-input graph-img" type="radio" name="specs.graphPath" value="exponential"/>
+            <img className="graph" src={exponential}/>
+          </label>
+          <label className="graph-path-box" htmlFor="graph-path-plateus">
+            <h4 className="graph-title">Plateus</h4>
+            <p className="graph-description">Definite distinction between experience levels, and climbing the ladder takes time and effort.</p>
+            <input id="graph-path-plateus" className="input add-input graph-img" type="radio" name="specs.graphPath" value="plateus"/>
+            <img className="graph" src={plateus}/>
+          </label>
         </fieldset>
         <input id="ii-amount" className="input add-input" type="text" name="specs.initialInvestment.amount" placeholder="How much do you need to spend to start?" value={hobby.specs.initialInvestment.amount} onChange={(event)=> {handleChange(event)}} />
-        <input id="ii-equpiment" className="input add-input" type="text" name="specs.initialInvestment.equipment" placeholder="What do you need to do it?" value={hobby.specs.initialInvestment.equipment} onChange={(event)=> {handleChange(event)}} />
-        <input id="time-per-session" className="input add-input" type="text" name="specs.timePerSession" placeholder="How long does it take?" value={hobby.specs.timePerSession} onChange={(event)=> {handleChange(event)}} />
-        <input id="pick-up-ability" className="input add-input" type="text" name="specs.pickUpAndPlayAbility" placeholder="How much preparation is involved?" value={hobby.specs.pickUpAndPlayAbility} onChange={(event)=> {handleChange(event)}} />
-        <input id="intellectual-score" className="input add-input" type="number" min="1" max="10" name="aspectscores.intellectualChallenge" placeholder="Intellectual Challenge Rating" value={hobby.aspectscores.intellectualChallenge === -1 ? "" : hobby.aspectscores.intellectualChallenge} onChange={(event)=> {handleChange(event)}} />
-        <input id="physical-score" className="input add-input" type="number" min="1" max="10" name="aspectscores.physicalChallenge" placeholder="Physical Challenge Rating" value={hobby.aspectscores.physicalChallenge === -1 ? "" : hobby.aspectscores.physicalChallenge} onChange={(event)=> {handleChange(event)}} />
-        <input id="creative-focus" className="input add-input" type="number" min="1" max="10" name="aspectscores.creativeFocus" placeholder="Creative Focus Rating" value={hobby.aspectscores.creativeFocus === -1 ? "" : hobby.aspectscores.creativeFocus} onChange={(event)=> {handleChange(event)}} />
-        <input id="technical-focus" className="input add-input" type="number" min="1" max="10" name="aspectscores.technicalFocus" placeholder="Technical Focus Rating" value={hobby.aspectscores.technicalFocus === -1 ? "" : hobby.aspectscores.technicalFocus} onChange={(event)=> {handleChange(event)}} />
-        <input id="financial-requirement" className="input add-input" type="number" min="1" max="10" name="aspectscores.financialRequirement" placeholder="Wallet Friendliness Rating" value={hobby.aspectscores.financialRequirement === -1 ? "" : hobby.aspectscores.financialRequirement} onChange={(event)=> {handleChange(event)}} />
-        <input id="solo-vs-group" className="input add-input" type="number" min="1" max="10" name="aspectscores.soloVsGroup" placeholder="Solo vs Group Rating" value={hobby.aspectscores.soloVsGroup === -1 ? "" : hobby.aspectscores.soloVsGroup} onChange={(event)=> {handleChange(event)}} />
-        <input id="problem-solving-vs-expression" className="input add-input" type="number" min="1" max="10" name="aspectscores.problemSolvingVsExpression" placeholder="Problem Solving vs Expression Rating" value={hobby.aspectscores.problemSolvingVsExpression === -1 ? "" : hobby.aspectscores.problemSolvingVsExpression} onChange={(event)=> {handleChange(event)}} />
-        <input id="desired-time-investment" className="input add-input" type="number" min="1" max="10" name="aspectscores.desiredTimeInvestment" placeholder="How much will it take over your life?" value={hobby.aspectscores.desiredTimeInvestment === -1 ? "" : hobby.aspectscores.desiredTimeInvestment} onChange={(event)=> {handleChange(event)}} />
-        <input id="technical-barrier-to-entry" className="input add-input" type="number" min="1" max="10" name="aspectscores.technicalBarrierToEntry" placeholder="Technical Barrier to Entry Rating" value={hobby.aspectscores.technicalBarrierToEntry === -1 ? "" : hobby.aspectscores.technicalBarrierToEntry} onChange={(event)=> {handleChange(event)}} />
-        <input id="keywords" className="input add-input" type="text" name="keywords" placeholder="Add some keywords!" value={hobby.keywords} onChange={(event)=> {handleChange(event)}}/>
-        <input className="button add-submit" type="submit" value="Add New Hobby" />
-      </form>
-    </div>
+        <input id="ii-equpiment" className="input add-input" type="text" name="specs.initialInvestment.equipment" placeholder="What do you need on hand to do it?" value={hobby.specs.initialInvestment.equipment} onChange={(event)=> {handleChange(event)}} />
+        <input id="time-per-session" className="input add-input" type="text" name="specs.timePerSession" placeholder="How long does it take to complete? (As long as you want is a fine answer here)" value={hobby.specs.timePerSession} onChange={(event)=> {handleChange(event)}} />
+        <input id="pick-up-ability" className="input add-input" type="text" name="specs.pickUpAndPlayAbility" placeholder="How much do you have to prepare each time?" value={hobby.specs.pickUpAndPlayAbility} onChange={(event)=> {handleChange(event)}} />
+        <fieldset className="scores-fields">
+          <legend>Descriptive Scores</legend>
+          <h4>Rate this hobby in each of the following fields with a number 1 - 10</h4>
+          <label htmlFor="intellectual-score">Intellectual Challenge Rating</label>
+          <input id="intellectual-score" className="input add-input" type="number" min="1" max="10" name="aspectscores.intellectualChallenge" placeholder="(1 = Kid-friendly) - (10 = Must be a Genius)" value={hobby.aspectscores.intellectualChallenge === -1 ? "" : hobby.aspectscores.intellectualChallenge} onChange={(event)=> {handleChange(event)}} />
+          <label htmlFor="physical-score">Physical Challenge Rating</label>
+          <input id="physical-score" className="input add-input" type="number" min="1" max="10" name="aspectscores.physicalChallenge" placeholder="(1 = Kid-friendly) - (10 = Professional Athletes Only)" value={hobby.aspectscores.physicalChallenge === -1 ? "" : hobby.aspectscores.physicalChallenge} onChange={(event)=> {handleChange(event)}} />
+          <label htmlFor="creative-focus">Creative Focus Rating</label>
+          <input id="creative-focus" className="input add-input" type="number" min="1" max="10" name="aspectscores.creativeFocus" placeholder="(1 = Must Follow the Instructions Exactly) - (10 = There are No Rules!)" value={hobby.aspectscores.creativeFocus === -1 ? "" : hobby.aspectscores.creativeFocus} onChange={(event)=> {handleChange(event)}} />
+          <label htmlFor="technical-focus">Technical Focus Rating</label>
+          <input id="technical-focus" className="input add-input" type="number" min="1" max="10" name="aspectscores.technicalFocus" placeholder="(1 = There are No Rules...) - (10 = Technique is Everything)" value={hobby.aspectscores.technicalFocus === -1 ? "" : hobby.aspectscores.technicalFocus} onChange={(event)=> {handleChange(event)}} />
+          <label htmlFor="financial-requirement">Finanical Requirement Rating</label>
+          <input id="financial-requirement" className="input add-input" type="number" min="1" max="10" name="aspectscores.financialRequirement" placeholder="(1 = Free Forever!) - (10 = Requires $1000s Before You Can Start)" value={hobby.aspectscores.financialRequirement === -1 ? "" : hobby.aspectscores.financialRequirement} onChange={(event)=> {handleChange(event)}} />
+          <label htmlFor="solo-vs-group">Solo vs Group Rating</label>
+          <input id="solo-vs-group" className="input add-input" type="number" min="1" max="10" name="aspectscores.soloVsGroup" placeholder="(1 = Best Done Solo) - (10 = Requires a Large Group)" value={hobby.aspectscores.soloVsGroup === -1 ? "" : hobby.aspectscores.soloVsGroup} onChange={(event)=> {handleChange(event)}} />
+          <label htmlFor="problem-solving-vs-expression">Problem Solving vs Expression Rating</label>
+          <input id="problem-solving-vs-expression" className="input add-input" type="number" min="1" max="10" name="aspectscores.problemSolvingVsExpression" placeholder="(1 = The Point is to Solve a Problem) - (10 = The Point is to Express Yourself)" value={hobby.aspectscores.problemSolvingVsExpression === -1 ? "" : hobby.aspectscores.problemSolvingVsExpression} onChange={(event)=> {handleChange(event)}} />
+          <label htmlFor="desired-time-investment">How much will it take over your life?</label>
+          <input id="desired-time-investment" className="input add-input" type="number" min="1" max="10" name="aspectscores.desiredTimeInvestment" placeholder="(1 = 5 Minutes Here and There) - (10 = There is No Life Outside of This...)" value={hobby.aspectscores.desiredTimeInvestment === -1 ? "" : hobby.aspectscores.desiredTimeInvestment} onChange={(event)=> {handleChange(event)}} />
+          <label htmlFor="technical-barrier-to-entry">How difficult is it to get started?</label>
+          <input id="technical-barrier-to-entry" className="input add-input" type="number" min="1" max="10" name="aspectscores.technicalBarrierToEntry" placeholder="(1 = Anyone Can Do It!) - (10 = Requires Years of Study to Understand the Basics)" value={hobby.aspectscores.technicalBarrierToEntry === -1 ? "" : hobby.aspectscores.technicalBarrierToEntry} onChange={(event)=> {handleChange(event)}} />
+      </fieldset>
+      <div className="keyword-layout">
+        <input id="keywords" className="input add-input" type="text" name="keywords" placeholder="Add some keywords! ('keyword, keyword'), Max = 3" value={hobby.keywords} onChange={(event)=> {handleChange(event)}}/>
+        <div className="keyword-container">
+        {hobby.keywords ? hobby.keywords.split(', ', 3).map((keyword, i)=> {
+          return <div className="individual-keyword" key={i}>{keyword}</div>
+        }) : null}
+        </div>
+      </div>
+      <input id="resources" className="input add-input" type="text" name="resources" placeholder="Have any good resources? ('resource, resource, ...')" value={hobby.resources} onChange={(event)=> {handleChange(event)}}/>
+      <input className="button add-submit" type="submit" value="Add New Hobby" />
+    </form>
+  </div>
   )
 }
 

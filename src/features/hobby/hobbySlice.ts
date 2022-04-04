@@ -53,8 +53,8 @@ export interface IdlessHobby {
       desiredTimeInvestment: number | "",
       technicalBarrierToEntry: number | "",
   },
-  keywords: string[],
-  resources: string[]
+  keywords: string,
+  resources: string
 }
 
 export const getHobbies = createAsyncThunk<any>('hobby/getHobbies', async () => {
