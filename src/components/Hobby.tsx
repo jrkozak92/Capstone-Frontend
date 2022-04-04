@@ -34,24 +34,29 @@ const HobbyDetail = ():any => {
             <h3>Specs</h3>
             <section className="spec-section">
               <h4>Expertise VS Time Invested</h4>
-              <img className="graph" src={inverseLog}/>
+              <img className="graph" src={hobby.specs.graphPath}/>
             </section>
             <section className="spec-section">
               <h4>Initial Investment</h4>
-              <p>$100, equipment</p>
+              <div>{hobby.specs.initialInvestment.amount}</div> <div>{hobby.specs.initialInvestment.equipment}</div>
             </section>
             <section className="spec-section">
               <h4>Time Per Session</h4>
-              <p>&lt;1min - 1hr</p>
+              <p>{hobby.specs.timePerSession}</p>
             </section>
             <section className="spec-section">
-              <h4>Pick-up-and-Play Friendly?</h4>
-              <p>Very!</p>
+              <h4>Prep</h4>
+              <p>{hobby.specs.pickUpAndPlayAbility}</p>
             </section>
           </div>
           <div className="hobby-resources">
             <h3>Resources</h3>
-            Placeholder information
+            <div>{hobby.resources[0].split(", ").map((resource: string, i: number) => {
+              return <div className="individual-resource" key={i}>
+                {resource}
+              </div>
+            })}
+            </div>
           </div>
         </div>
       }

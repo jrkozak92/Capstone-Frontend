@@ -10,12 +10,13 @@ import linear from "../assets/SVTLinear.png"
 import plateus from "../assets/SVTPlateus.png"
 
 const Add = () => {
+  const [graphPath, setGraphPath] = useState('inverseLog')
   const [hobby, setHobby] = useState<IdlessHobby>(
     {
       name: '',
       description: '',
       specs: {
-          graphPath: '',
+          graphPath: graphPath,
           initialInvestment: {
             amount: '',
             equipment: ''
@@ -38,6 +39,7 @@ const Add = () => {
       resources: ""
     }
   )
+
 
   const dispatch = useAppDispatch()
   // This is how I found the nested object handling solution: https://stackoverflow.com/questions/47103028/how-to-use-object-spread-with-nested-properties
@@ -62,35 +64,45 @@ const Add = () => {
     }
   }
 
+  const handleRadioChange = (event: any) => {
+    if (graphPath !== event.target.value) {
+      setGraphPath(event.target.value)
+      setHobby({...hobby, specs: {...hobby.specs, graphPath: event.target.value}})
+    }
+  }
+
   const handleSubmit = (event: any) => {
     event.preventDefault()
+    hobby.keywords = (`'${hobby.keywords}'`)
+    hobby.resources = (`'${hobby.resources}'`)
+    console.log(hobby)
     dispatch(addHobby(hobby))
-    setHobby({
-      name: '',
-      description: '',
-      specs: {
-          graphPath: '',
-          initialInvestment: {
-            amount: '',
-            equipment: ''
-          },
-          timePerSession: '',
-          pickUpAndPlayAbility: '',
-      },
-      aspectscores: {
-          intellectualChallenge: "",
-          physicalChallenge: "",
-          creativeFocus: "",
-          technicalFocus: "",
-          financialRequirement: "",
-          soloVsGroup: "",
-          problemSolvingVsExpression: "",
-          desiredTimeInvestment: "",
-          technicalBarrierToEntry: "",
-      },
-      keywords: "",
-      resources: ""
-    })
+    // setHobby({
+    //   name: '',
+    //   description: '',
+    //   specs: {
+    //       graphPath: '',
+    //       initialInvestment: {
+    //         amount: '',
+    //         equipment: ''
+    //       },
+    //       timePerSession: '',
+    //       pickUpAndPlayAbility: '',
+    //   },
+    //   aspectscores: {
+    //       intellectualChallenge: "",
+    //       physicalChallenge: "",
+    //       creativeFocus: "",
+    //       technicalFocus: "",
+    //       financialRequirement: "",
+    //       soloVsGroup: "",
+    //       problemSolvingVsExpression: "",
+    //       desiredTimeInvestment: "",
+    //       technicalBarrierToEntry: "",
+    //   },
+    //   keywords: "",
+    //   resources: ""
+    // })
   }
 
   return (
@@ -104,25 +116,25 @@ const Add = () => {
           <label className="graph-path-box" htmlFor="graph-path-inverseLog">
             <h4 className="graph-title">Inverse Log</h4>
             <p className="graph-description">Easy to learn the basics, but marginal gains after a certain point.</p>
-            <input id="graph-path-inverseLog" className="input add-input graph-img" type="radio" name="specs.graphPath" value="inverseLog" defaultChecked/>
+            <input id="graph-path-inverseLog" className="input add-input graph-img" type="radio" name="specs.graphPath" value="inverseLog" onChange={(event)=>{handleRadioChange(event)}}  checked={graphPath === 'inverseLog'}/>
             <img className="graph" src={inverseLog}/>
           </label>
           <label className="graph-path-box" htmlFor="graph-path-linear">
             <h4 className="graph-title">Linear</h4>
             <p className="graph-description">You get out what you put in.</p>
-            <input id="graph-path-linear" className="input add-input graph-img" type="radio" name="specs.graphPath" value="linear"/>
+            <input id="graph-path-linear" className="input add-input graph-img" type="radio" name="specs.graphPath" value="linear" onChange={(event)=>{handleRadioChange(event)}} checked={graphPath === 'linear'}/>
             <img className="graph" src={linear}/>
           </label>
           <label className="graph-path-box" htmlFor="graph-path-exponential">
             <h4 className="graph-title">Exponential</h4>
             <p className="graph-description">Tough to pick up, but quick to master once you get it.</p>
-            <input id="graph-path-exponential" className="input add-input graph-img" type="radio" name="specs.graphPath" value="exponential"/>
+            <input id="graph-path-exponential" className="input add-input graph-img" type="radio" name="specs.graphPath" value="exponential" onChange={(event)=>{handleRadioChange(event)}} checked={graphPath === 'exponential'}/>
             <img className="graph" src={exponential}/>
           </label>
           <label className="graph-path-box" htmlFor="graph-path-plateus">
             <h4 className="graph-title">Plateus</h4>
             <p className="graph-description">Definite distinction between experience levels, and climbing the ladder takes time and effort.</p>
-            <input id="graph-path-plateus" className="input add-input graph-img" type="radio" name="specs.graphPath" value="plateus"/>
+            <input id="graph-path-plateus" className="input add-input graph-img" type="radio" name="specs.graphPath" value="plateus" onChange={(event)=>{handleRadioChange(event)}} checked={graphPath === 'plateus'}/>
             <img className="graph" src={plateus}/>
           </label>
         </fieldset>
