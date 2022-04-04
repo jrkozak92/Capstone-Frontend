@@ -201,7 +201,7 @@ ul {
   padding:.25em;
   background-color: #1c2541;
   display:grid;
-  grid-template-columns: 85% 1fr 1fr;
+  grid-template-columns: 1fr;
   border:1px solid transparent;
   border-top: 1px solid #3a506b;
   border-radius:0;
@@ -227,14 +227,9 @@ ul {
 }
 
 .hobby p {
-  max-width:70vw;
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
-}
-
-.hobby > div {
-  padding:5px;
 }
 
 .hobby-detail {
