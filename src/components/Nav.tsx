@@ -17,18 +17,13 @@ const Nav = () => {
   return (
     <nav className="nav-bar">
       <div>
-        <h3 className="menu-item" onClick={()=>{showMenu('add')}}>Add</h3>
-        { dropdown === 'add' ?
-          <Add/>
-            :
-          null
-        }
+        <NavLink className="menu-item" to="/add">Add</NavLink>
       </div>
       <div>
-        <NavLink className="menu-item" to="/hobbies" onClick={()=>{showMenu('')}}>Hobbies</NavLink>
+        <NavLink className="menu-item" to="/hobbies">Hobbies</NavLink>
       </div>
       <div>
-        <NavLink className="menu-item about" to="/about" onClick={()=>{showMenu('')}}>About</NavLink>
+        <NavLink className="menu-item about" to="/about">About</NavLink>
       </div>
     </nav>
   )

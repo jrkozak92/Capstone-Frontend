@@ -292,7 +292,19 @@ textarea{
   min-width:300px;
 }
 
-.add-input{}
+.add-input{
+  height:min-content;
+  padding:.75em;
+  color:white;
+  background-color:#1c2541;
+  font-weight:bold;
+  border: 1px solid #3a506b;
+  border-radius:1em;
+}
+
+#description {
+  height:15vh;
+}
 
 .edit-form {
   right:8%;
@@ -331,4 +343,107 @@ textarea{
   background-color:crimson;
   height:100%;
   width:100%;
+}
+
+.radio-graphs {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-items:center;
+  align-items:center;
+  padding:1em;
+}
+
+.radio-graphs > * {
+  padding:.5em;
+}
+
+input[type="radio"] {
+ position:absolute;
+ opacity:0;
+ height:0;
+ width:0;
+}
+
+input[type="radio"] + img {
+  padding:1em;
+  cursor:pointer;
+  border-radius:10px;
+}
+
+input[type="radio"]:checked + img {
+  outline: 2px solid white;
+}
+
+.graph-description {
+  text-align:center;
+  width:90%;
+}
+
+.graph {
+  display:inline;
+  width:90%;
+}
+
+.graph-path-box {
+  height:100%;
+  display:flex;
+  flex-flow:column nowrap;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.scores-fields {
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2em auto;
+  width:100%;
+}
+
+.scores-fields > label {
+  justify-self:start;
+  padding-left: 10%;
+}
+
+.scores-fields > input {
+  justify-self:center;
+}
+
+.scores-fields > h4 {
+  padding:.5em;
+}
+
+.keyword-layout {
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding:0;
+}
+
+#keywords {
+  width:50%;
+  align-self:flex-start;
+  margin-left:5%;
+}
+
+.keyword-container {
+  justify-self:end;
+  width:40%;
+  height:100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows:auto;
+  gap:.75em;
+  padding:0 .5em;
+}
+
+.individual-keyword {
+  background-color:#3a506b;
+  height:100%;
+  padding:.75em .25em;
+  overflow-wrap: break-word;
+  hyphens:auto;
 }
