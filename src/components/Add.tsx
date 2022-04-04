@@ -46,20 +46,21 @@ const Add = () => {
   const dispatch = useAppDispatch()
   // This is how I found the nested object handling solution: https://stackoverflow.com/questions/47103028/how-to-use-object-spread-with-nested-properties
   const handleChange = (event: any) => {
+    if (event.target.value.includes('<' || '>')){
+      event.target.value.replaceAll('<', '&lt;')
+      event.target.value.replaceAll('>', '&gt;')
+    }
     if (event.target.name.includes('initialInvestment')){
       const sliceIndex: number = event.target.name.lastIndexOf('.') + 1
       const keyName: string = event.target.name.slice(sliceIndex)
-      console.log(`sliceIndex: ${sliceIndex}, keyName: ${keyName}`)
       setHobby({...hobby, specs: {...hobby.specs, initialInvestment: {...hobby.specs.initialInvestment, [keyName]: event.target.value}}})
     } else if (event.target.name.includes('specs')) {
       const sliceIndex: number = event.target.name.lastIndexOf('.') + 1
       const keyName: string = event.target.name.slice(sliceIndex)
-      console.log(`sliceIndex: ${sliceIndex}, keyName: ${keyName}`)
       setHobby({...hobby, specs: {...hobby.specs, [keyName]: event.target.value}})
     } else if (event.target.name.includes('aspectscores')) {
       const sliceIndex: number = event.target.name.lastIndexOf('.') + 1
       const keyName: string = event.target.name.slice(sliceIndex)
-      console.log(`sliceIndex: ${sliceIndex}, keyName: ${keyName}`)
       setHobby({...hobby, aspectscores: {...hobby.aspectscores, [keyName]: event.target.value}})
     } else {
       setHobby({...hobby, [event.target.name]: event.target.value})
