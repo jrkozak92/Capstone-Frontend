@@ -4,7 +4,7 @@ import axios from 'axios'
 
 
 import { useAppDispatch, useAppSelector } from '../app/hooks'
-import { getHobbies, deleteHobby, Hobby, hobbySelectors } from '../features/hobby/hobbySlice'
+import { getHobbies, Hobby, hobbySelectors } from '../features/hobby/hobbySlice'
 import { RootState } from '../app/store'
 import { Link, Outlet } from 'react-router-dom'
 
@@ -17,9 +17,6 @@ const List = () => {
   const dispatch = useAppDispatch()
   const hobbies = useAppSelector(hobbySelectors.selectAll)
   const [searchFilter, setSearchFilter] = useState('')
-  const handleDelete = (id: number) => {
-    dispatch(deleteHobby(id))
-  }
 
   const handleChange = (event: any) => {
     setSearchFilter(event.target.value.toLowerCase())
@@ -47,8 +44,6 @@ const List = () => {
                   <h5>{hobby.name}</h5>
                   <p>{hobby.description}</p>
                 </Link>
-                <Edit hobby={hobby}/>
-                <button className="button" onClick={() => {handleDelete(hobby.id)}}>Delete</button>
               </div>
             })}
           </div>

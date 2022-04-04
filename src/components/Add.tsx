@@ -78,7 +78,6 @@ const Add = () => {
     event.preventDefault()
     hobby.keywords = (`'${hobby.keywords}'`)
     hobby.resources = (`'${hobby.resources}'`)
-    console.log(hobby)
     dispatch(addHobby(hobby))
     setHobby({
       name: '',
