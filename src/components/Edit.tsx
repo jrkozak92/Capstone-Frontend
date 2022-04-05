@@ -75,14 +75,15 @@ const Edit = ():any => {
       updatedHobbyObj.specs.pickUpAndPlayAbility = (`${updatedHobbyObj.specs.pickUpAndPlayAbility.replaceAll("'", "''")}`)
     }
     if (typeof updatedHobbyObj.keywords !== 'string'){
-      console.log('typeof keywords before: ', (typeof updatedHobbyObj.keywords), 'Keywords: ', updatedHobbyObj.keywords);
-      updatedHobbyObj.keywords = (`'${updatedHobbyObj.keywords.map((el:any)=> el.replaceAll("'", "''")).join(', ')}'`)
-      console.log('typeof keywords after: ', (typeof updatedHobbyObj.keywords), 'Keywords: ', updatedHobbyObj.keywords);
+      updatedHobbyObj.keywords = updatedHobbyObj.keywords.toString()
+      updatedHobbyObj.keywords = (`'${updatedHobbyObj.keywords.replaceAll("'", "''")}'`)
+      // console.log('typeof keywords after: ', (typeof updatedHobbyObj.keywords), 'Keywords: ', updatedHobbyObj.keywords);
     } else {
       updatedHobbyObj.keywords = (`'${updatedHobbyObj.keywords.replaceAll("'", "''")}'`)
     }
     if (typeof updatedHobbyObj.resources !== 'string'){
-      updatedHobbyObj.resources = (`'${updatedHobbyObj.resources.map((el:any)=> el.replaceAll("'", "''")).join(', ')}'`)
+      updatedHobbyObj.resources = updatedHobbyObj.resources.toString()
+      updatedHobbyObj.resources = (`'${updatedHobbyObj.resources.replaceAll("'", "''")}'`)
     } else {
       updatedHobbyObj.resources = (`'${updatedHobbyObj.resources.replaceAll("'", "''")}'`)
     }
@@ -104,6 +105,15 @@ const Edit = ():any => {
   useEffect(()=>{
     setUpdatedHobby(hobby)
   }, [hobby])
+
+  // useEffect(()=> {
+  //   if (typeof updatedHobby.keywords !== 'string' ){
+  //     setUpdatedHobby({...updatedHobby, keywords: updatedHobby.keywords.join(', ')})
+  //   }
+  //   if (typeof updatedHobby.resources !== 'string' ){
+  //     setUpdatedHobby({...updatedHobby, resources: updatedHobby.resources.join(', ')})
+  //   }
+  // }, [updatedHobby])
 
   return (
     <>
