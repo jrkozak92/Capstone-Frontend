@@ -24,8 +24,10 @@ const Edit = ():any => {
   const hobby: any = useAppSelector((state) => hobbySelectors.selectById(state, hobbyId))
   const [updatedHobby, setUpdatedHobby] = useState<MutableHobby>(hobby)
   const [showRadio, setShowRadio] = useState(false)
+  const [changeStatus, setChangeStatus] = useState(false)
 
   const handleChange = (event: any) => {
+    setChangeStatus(true)
     if (event.target.value.includes('<') || event.target.value.includes('>')){
       event.target.value.replaceAll('<', '&lt;')
       event.target.value.replaceAll('>', '&gt;')
@@ -53,43 +55,17 @@ const Edit = ():any => {
     }
   }
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: any, updatedHobbyObj: Mutable<Hobby>) => {
     event.preventDefault()
-    let updatedHobbyObj: MutableHobby = updatedHobby
-    if (updatedHobbyObj.name.includes("'")){
-        updatedHobbyObj.name = (`${updatedHobbyObj.name.replaceAll("'", "''")}`)
+    if (changeStatus){
+      if (typeof updatedHobbyObj.keywords !== 'string'){
+        updatedHobbyObj.keywords = updatedHobbyObj.keywords.join(', ')
+      }
+      if (typeof updatedHobbyObj.resources !== 'string'){
+        updatedHobbyObj.resources = updatedHobbyObj.resources.join(', ')
+      }
+      dispatch(updateHobby(updatedHobbyObj))
     }
-    if(updatedHobbyObj.description.includes("'")){
-      updatedHobbyObj.description = (`${updatedHobbyObj.description.replaceAll("'", "''")}`)
-    }
-    if(updatedHobbyObj.specs.initialInvestment.amount.includes("'")){
-      updatedHobbyObj.specs.initialInvestment.amount = (`${updatedHobbyObj.specs.initialInvestment.amount.replaceAll("'", "''")}`)
-    }
-    if(updatedHobbyObj.specs.initialInvestment.equipment.includes("'")){
-      updatedHobbyObj.specs.initialInvestment.equipment = (`${updatedHobbyObj.specs.initialInvestment.equipment.replaceAll("'", "''")}`)
-    }
-    if(updatedHobbyObj.specs.timePerSession.includes("'")){
-      updatedHobbyObj.specs.timePerSession = (`${updatedHobbyObj.specs.timePerSession.replaceAll("'", "''")}`)
-    }
-    if(updatedHobbyObj.specs.pickUpAndPlayAbility.includes("'")){
-      updatedHobbyObj.specs.pickUpAndPlayAbility = (`${updatedHobbyObj.specs.pickUpAndPlayAbility.replaceAll("'", "''")}`)
-    }
-    if (typeof updatedHobbyObj.keywords !== 'string'){
-      updatedHobbyObj.keywords = updatedHobbyObj.keywords.toString()
-      updatedHobbyObj.keywords = (`'${updatedHobbyObj.keywords.replaceAll("'", "''")}'`)
-      // console.log('typeof keywords after: ', (typeof updatedHobbyObj.keywords), 'Keywords: ', updatedHobbyObj.keywords);
-    } else {
-      updatedHobbyObj.keywords = (`'${updatedHobbyObj.keywords.replaceAll("'", "''")}'`)
-    }
-    if (typeof updatedHobbyObj.resources !== 'string'){
-      updatedHobbyObj.resources = updatedHobbyObj.resources.toString()
-      updatedHobbyObj.resources = (`'${updatedHobbyObj.resources.replaceAll("'", "''")}'`)
-    } else {
-      updatedHobbyObj.resources = (`'${updatedHobbyObj.resources.replaceAll("'", "''")}'`)
-    }
-    console.log(updatedHobbyObj);
-
-    dispatch(updateHobby(updatedHobbyObj))
     navigate(`/hobbies/${hobbyId}`)
   }
 
@@ -122,7 +98,7 @@ const Edit = ():any => {
         <Link to="/hobbies" className="button">&lt; Back to All Hobbies</Link>
         <button className="button delete-button" onClick={() => {handleDelete(hobbyId)}}>Delete This Hobby</button>
         <div>
-          <Link to={`/hobbies/${hobbyId}`} className="button edit-save" onClick={(event)=>{handleSubmit(event)}}>Save</Link>
+          <Link to={`/hobbies/${hobbyId}`} className="button edit-save" onClick={(event)=>{handleSubmit(event, updatedHobby)}}>Save</Link>
           <Link to={`/hobbies/${hobbyId}`} className="button edit-cancel">Cancel</Link>
         </div>
       </div>
