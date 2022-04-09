@@ -21,3 +21,4 @@ Moving forward, my main goals are as follow:
   - Updating Favicon and Title
   - Automatic casing of editable fields
   - More complete About page
+  - Adding Keywords to Search parameters
