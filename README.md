@@ -7,7 +7,8 @@
 ## Ongoing Development
 As of 4/8/22, all known bugs have been squashed, and this bug free version of the basic CRUD app are deployed to Heroku:
 - Front End: https://shielded-retreat-18321.herokuapp.com/
-- Back End: https://ancient-cliffs-31790.herokuapp.com/hobbies<br/>
+- Back End: https://ancient-cliffs-31790.herokuapp.com/hobbies
+
 Moving forward, my main goals are as follow:
 - Hobby Recommendation Quiz creation and implementation
 - Quiz results recommendation algorithm
