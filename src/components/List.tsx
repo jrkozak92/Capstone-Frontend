@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import axios from 'axios'
-
-
 import { useAppDispatch, useAppSelector } from '../app/hooks'
 import { getHobbies, Hobby, hobbySelectors } from '../features/hobby/hobbySlice'
 import { RootState } from '../app/store'
