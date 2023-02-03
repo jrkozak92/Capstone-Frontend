@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
 import { Hobby, deleteHobby, updateHobby, hobbySelectors, getHobbies } from '../features/hobby/hobbySlice'
-import { RootState } from '../app/store'
 
 import inverseLog from "../assets/SVTInverseLog.png"
 import exponential from "../assets/SVTExponential.png"
@@ -74,6 +72,7 @@ const Edit = ():any => {
     navigate('/hobbies')
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(()=>{
     dispatch(getHobbies())
   }, [])
@@ -120,16 +119,16 @@ const Edit = ():any => {
             <section className="spec-section">
               <h4>Expertise VS Time Invested</h4>
               {updatedHobby.specs.graphPath === 'inverseLog' ?
-                <img className="edit-graph" src={inverseLog} onClick={()=>{setShowRadio(!showRadio)}}/>
+                <img alt="" className="edit-graph" src={inverseLog} onClick={()=>{setShowRadio(!showRadio)}}/>
                 :
                 updatedHobby.specs.graphPath === 'linear' ?
-                  <img className="edit-graph" src={linear} onClick={()=>{setShowRadio(!showRadio)}}/>
+                  <img alt="" className="edit-graph" src={linear} onClick={()=>{setShowRadio(!showRadio)}}/>
                   :
                   updatedHobby.specs.graphPath === 'exponential' ?
-                    <img className="edit-graph" src={exponential} onClick={()=>{setShowRadio(!showRadio)}}/>
+                    <img alt="" className="edit-graph" src={exponential} onClick={()=>{setShowRadio(!showRadio)}}/>
                     :
                     updatedHobby.specs.graphPath === 'plateus' ?
-                      <img className="edit-graph" src={plateus} onClick={()=>{setShowRadio(!showRadio)}}/>
+                      <img alt="" className="edit-graph" src={plateus} onClick={()=>{setShowRadio(!showRadio)}}/>
                       :
                       undefined
               }
@@ -140,25 +139,25 @@ const Edit = ():any => {
                   <h4 className="graph-title">Inverse Log</h4>
                   <p className="graph-description">Easy to learn the basics, but marginal gains after a certain point.</p>
                   <input id="graph-path-inverseLog" className="input add-input graph-img" type="radio" name="specs.graphPath" value="inverseLog" onChange={(event)=>{handleRadioChange(event)}}  checked={updatedHobby.specs.graphPath === 'inverseLog'} required/>
-                  <img className="graph" src={inverseLog}/>
+                  <img alt="" className="graph" src={inverseLog}/>
                 </label>
                 <label className="graph-path-box" htmlFor="graph-path-linear">
                   <h4 className="graph-title">Linear</h4>
                   <p className="graph-description">You get out what you put in.</p>
                   <input id="graph-path-linear" className="input add-input graph-img" type="radio" name="specs.graphPath" value="linear" onChange={(event)=>{handleRadioChange(event)}} checked={updatedHobby.specs.graphPath === 'linear'} required/>
-                  <img className="graph" src={linear}/>
+                  <img alt="" className="graph" src={linear}/>
                 </label>
                 <label className="graph-path-box" htmlFor="graph-path-exponential">
                   <h4 className="graph-title">Exponential</h4>
                   <p className="graph-description">Tough to pick up, but quick to master once you get it.</p>
                   <input id="graph-path-exponential" className="input add-input graph-img" type="radio" name="specs.graphPath" value="exponential" onChange={(event)=>{handleRadioChange(event)}} checked={updatedHobby.specs.graphPath === 'exponential'} required/>
-                  <img className="graph" src={exponential}/>
+                  <img alt="" className="graph" src={exponential}/>
                 </label>
                 <label className="graph-path-box" htmlFor="graph-path-plateus">
                   <h4 className="graph-title">Plateus</h4>
                   <p className="graph-description">Definite distinction between experience levels, and climbing the ladder takes time and effort.</p>
                   <input id="graph-path-plateus" className="input add-input graph-img" type="radio" name="specs.graphPath" value="plateus" onChange={(event)=>{handleRadioChange(event)}} checked={updatedHobby.specs.graphPath === 'plateus'} required/>
-                  <img className="graph" src={plateus}/>
+                  <img alt="" className="graph" src={plateus}/>
                 </label>
               </fieldset>
                :
