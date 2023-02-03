@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../app/hooks'
+import { useState } from 'react'
+import { useAppDispatch } from '../app/hooks'
 import { addHobby, IdlessHobby } from '../features/hobby/hobbySlice'
-import axios from 'axios'
 import '../App.css'
 import { useNavigate } from 'react-router-dom'
 
@@ -120,25 +119,25 @@ const Add = () => {
             <h4 className="graph-title">Inverse Log</h4>
             <p className="graph-description">Easy to learn the basics, but marginal gains after a certain point.</p>
             <input id="graph-path-inverseLog" className="input add-input graph-img" type="radio" name="specs.graphPath" value="inverseLog" onChange={(event)=>{handleRadioChange(event)}}  checked={graphPath === 'inverseLog'} required/>
-            <img className="graph" src={inverseLog}/>
+            <img alt="" className="graph" src={inverseLog}/>
           </label>
           <label className="graph-path-box" htmlFor="graph-path-linear">
             <h4 className="graph-title">Linear</h4>
             <p className="graph-description">You get out what you put in.</p>
             <input id="graph-path-linear" className="input add-input graph-img" type="radio" name="specs.graphPath" value="linear" onChange={(event)=>{handleRadioChange(event)}} checked={graphPath === 'linear'} required/>
-            <img className="graph" src={linear}/>
+            <img alt="" className="graph" src={linear}/>
           </label>
           <label className="graph-path-box" htmlFor="graph-path-exponential">
             <h4 className="graph-title">Exponential</h4>
             <p className="graph-description">Tough to pick up, but quick to master once you get it.</p>
             <input id="graph-path-exponential" className="input add-input graph-img" type="radio" name="specs.graphPath" value="exponential" onChange={(event)=>{handleRadioChange(event)}} checked={graphPath === 'exponential'} required/>
-            <img className="graph" src={exponential}/>
+            <img alt="" className="graph" src={exponential}/>
           </label>
           <label className="graph-path-box" htmlFor="graph-path-plateus">
             <h4 className="graph-title">Plateus</h4>
             <p className="graph-description">Definite distinction between experience levels, and climbing the ladder takes time and effort.</p>
             <input id="graph-path-plateus" className="input add-input graph-img" type="radio" name="specs.graphPath" value="plateus" onChange={(event)=>{handleRadioChange(event)}} checked={graphPath === 'plateus'} required/>
-            <img className="graph" src={plateus}/>
+            <img alt="" className="graph" src={plateus}/>
           </label>
         </fieldset>
         <input id="ii-amount" className="input add-input" type="text" name="specs.initialInvestment.amount" placeholder="How much do you need to spend to start?" value={hobby.specs.initialInvestment.amount} onChange={(event)=> {handleChange(event)}} required/>

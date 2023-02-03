@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import '../App.css'
 import { useParams, Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
-import { getHobbies, deleteHobby, Hobby, hobbySelectors } from '../features/hobby/hobbySlice'
-import store from '../app/store'
+import { getHobbies, hobbySelectors } from '../features/hobby/hobbySlice'
 import inverseLog from "../assets/SVTInverseLog.png"
 import exponential from "../assets/SVTExponential.png"
 import linear from "../assets/SVTLinear.png"
@@ -17,6 +16,7 @@ const HobbyDetail = ():any => {
 
   useEffect(()=>{
     dispatch(getHobbies())
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -45,16 +45,16 @@ const HobbyDetail = ():any => {
             <section className="spec-section">
               <h4>Expertise VS Time Invested</h4>
               {hobby.specs.graphPath === 'inverseLog' ?
-                <img className="graph" src={inverseLog}/>
+                <img alt="" className="graph" src={inverseLog}/>
                 :
                 hobby.specs.graphPath === 'linear' ?
-                  <img className="graph" src={linear}/>
+                  <img alt="" className="graph" src={linear}/>
                   :
                   hobby.specs.graphPath === 'exponential' ?
-                    <img className="graph" src={exponential}/>
+                    <img alt="" className="graph" src={exponential}/>
                     :
                     hobby.specs.graphPath === 'plateus' ?
-                      <img className="graph" src={plateus}/>
+                      <img alt="" className="graph" src={plateus}/>
                       :
                       undefined
               }

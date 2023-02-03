@@ -1,18 +1,16 @@
-import { useState, useEffect } from 'react'
-import Add from './Add'
 import '../App.css';
-import { Routes, Route, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Nav = () => {
-  const [dropdown, setDropdown] = useState<string>('')
+  // const [dropdown, setDropdown] = useState<string>('')
 
-  const showMenu = (selection: string) => {
-    if (selection === dropdown){
-      setDropdown('')
-    } else {
-      setDropdown(selection)
-    }
-  }
+  // const showMenu = (selection: string) => {
+  //   if (selection === dropdown){
+  //     setDropdown('')
+  //   } else {
+  //     setDropdown(selection)
+  //   }
+  // }
 
   return (
     <nav className="nav-bar">

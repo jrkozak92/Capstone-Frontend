@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../App.css';
-import axios from 'axios'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
 import { getHobbies, Hobby, hobbySelectors } from '../features/hobby/hobbySlice'
-import { RootState } from '../app/store'
-import { Link, Outlet } from 'react-router-dom'
-
-import Nav from '../components/Nav'
-import Edit from '../components/Edit'
+import { Link } from 'react-router-dom'
 
 
 const List = () => {
@@ -20,8 +15,10 @@ const List = () => {
     setSearchFilter(event.target.value.toLowerCase())
   }
 
+
   useEffect(()=>{
     dispatch(getHobbies())
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

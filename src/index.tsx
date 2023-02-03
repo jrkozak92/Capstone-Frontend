@@ -5,7 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import store from './app/store'
-import Nav from './components/Nav'
 import List from './components/List'
 import Hobby from './components/Hobby'
 import About from './components/About'
