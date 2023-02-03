@@ -15,9 +15,10 @@ const List = () => {
     setSearchFilter(event.target.value.toLowerCase())
   }
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
   useEffect(()=>{
     dispatch(getHobbies())
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

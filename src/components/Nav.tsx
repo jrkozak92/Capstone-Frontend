@@ -3,7 +3,7 @@ import '../App.css';
 import { NavLink } from 'react-router-dom'
 
 const Nav = () => {
-  const [dropdown, setDropdown] = useState<string>('')
+  // const [dropdown, setDropdown] = useState<string>('')
 
   // const showMenu = (selection: string) => {
   //   if (selection === dropdown){
