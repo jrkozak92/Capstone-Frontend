@@ -58,16 +58,16 @@ export interface IdlessHobby {
 }
 
 export const getHobbies = createAsyncThunk<any>('hobby/getHobbies', async () => {
-  return await axios.get('https://ancient-cliffs-31790.herokuapp.com/hobbies').then((response)=>response.data)
+  return await axios.get('https://capstone-backend-v0ob.onrender.com/hobbies').then((response)=>response.data)
 })
 
 export const deleteHobby = createAsyncThunk('hobby/deleteHobby', async (id: number) => {
-  return await axios.delete(`https://ancient-cliffs-31790.herokuapp.com/hobbies/${id}`).then((response) => id)
+  return await axios.delete(`https://capstone-backend-v0ob.onrender.com/hobbies/${id}`).then((response) => id)
 })
 
 export const updateHobby = createAsyncThunk('hobby/updateHobby', async (changedHobby: Hobby) => {
   const updatedHobby = await axios
-                                .put(`https://ancient-cliffs-31790.herokuapp.com/hobbies/${changedHobby.id}`, changedHobby)
+                                .put(`https://capstone-backend-v0ob.onrender.com/hobbies/${changedHobby.id}`, changedHobby)
                                 .then((response) => {
                                    console.log(response.data)
                                    return response.data[0]
@@ -78,12 +78,12 @@ export const updateHobby = createAsyncThunk('hobby/updateHobby', async (changedH
 })
 
 export const addHobby = createAsyncThunk('hobby/addHobby', async (newHobby: IdlessHobby) => {
-  return await axios.post('https://ancient-cliffs-31790.herokuapp.com/hobbies', newHobby)
+  return await axios.post('https://capstone-backend-v0ob.onrender.com/hobbies', newHobby)
     .then((response: any) => response.data[0])
 })
 
 export const getHobbyById = createAsyncThunk('hobby/getHobbyById', async (id: number) => {
-  return await axios.get(`https://ancient-cliffs-31790.herokuapp.com/hobbies/${id}`).then((response) => response.data[0])
+  return await axios.get(`https://capstone-backend-v0ob.onrender.com/hobbies/${id}`).then((response) => response.data[0])
 })
 
 export const hobbyAdapter = createEntityAdapter<Hobby>({
