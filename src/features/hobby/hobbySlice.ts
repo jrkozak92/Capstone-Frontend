@@ -70,7 +70,7 @@ export const updateHobby = createAsyncThunk('hobby/updateHobby', async (changedH
     .put(`https://capstone-backend-v0ob.onrender.com/hobbies/${changedHobby.id}`, changedHobby)
     .then((response: any) => {
       const updatedHobby = response.data[0]
-      const updateObj: {id: number, changes: Hobby} = {id: changedHobby.id, changes: { id: updatedHobby.id, name: updatedHobby.name, description: updatedHobby.description, specs: updatedHobby.specs, aspectscores: updatedHobby.aspectscores, keywords: updatedHobby.keywords, resources: updatedHobby.resources }}
+      const updateObj: {id: number, changes: Hobby} = {id: changedHobby.id, changes: { id: parseInt(updatedHobby.id), name: updatedHobby.name, description: updatedHobby.description, specs: updatedHobby.specs, aspectscores: updatedHobby.aspectscores, keywords: updatedHobby.keywords, resources: updatedHobby.resources }}
       return updateObj
   })
 })
