@@ -73,7 +73,7 @@ export const updateHobby = createAsyncThunk('hobby/updateHobby', async (changedH
                                    return response.data[0]
                                   }
                                 )
-  const updateObj: {id: number, changes: Hobby} = {id: updatedHobby.id, changes: { id: updatedHobby.id, name: updatedHobby.name, description: updatedHobby.description, specs: updatedHobby.specs, aspectscores: updatedHobby.aspectscores, keywords: updatedHobby.keywords, resources: updatedHobby.resources }}
+  const updateObj: {id: number, changes: Hobby} = {id: changedHobby.id, changes: { id: changedHobby.id, name: updatedHobby.name, description: updatedHobby.description, specs: updatedHobby.specs, aspectscores: updatedHobby.aspectscores, keywords: updatedHobby.keywords, resources: updatedHobby.resources }}
   return updateObj
 })
 
