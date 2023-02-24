@@ -5,16 +5,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import store from './app/store'
+<<<<<<< Updated upstream
 import List from './components/List'
 import Hobby from './components/Hobby'
 import About from './components/About'
 import Add from './components/Add'
 import Edit from './components/Edit'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+=======
+>>>>>>> Stashed changes
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+<<<<<<< Updated upstream
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
@@ -27,6 +31,9 @@ ReactDOM.render(
           </Route>
         </Routes>
       </BrowserRouter>
+=======
+      <App />
+>>>>>>> Stashed changes
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
