@@ -67,9 +67,8 @@ export const deleteHobby = createAsyncThunk('hobby/deleteHobby', async (id: numb
 
 export const updateHobby = createAsyncThunk('hobby/updateHobby', async (changedHobby: Hobby) => {
   const response =  await axios.put(`https://capstone-backend-v0ob.onrender.com/hobbies/${changedHobby.id}`, changedHobby)
-  const updatedHobby = response.data
-  const updateObj: {id: number, changes: Hobby} = {id: changedHobby.id, changes: { id: parseInt(updatedHobby.id), name: updatedHobby.name, description: updatedHobby.description, specs: updatedHobby.specs, aspectscores: updatedHobby.aspectscores, keywords: updatedHobby.keywords, resources: updatedHobby.resources }}
-  return updateObj
+  const updatedHobby = response.data[0]
+  return {id: changedHobby.id, changes: { id: parseInt(updatedHobby.id), name: updatedHobby.name, description: updatedHobby.description, specs: updatedHobby.specs, aspectscores: updatedHobby.aspectscores, keywords: updatedHobby.keywords, resources: updatedHobby.resources }}
 })
 
 export const addHobby = createAsyncThunk('hobby/addHobby', async (newHobby: IdlessHobby) => {
