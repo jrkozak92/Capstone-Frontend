@@ -66,9 +66,15 @@ export const deleteHobby = createAsyncThunk('hobby/deleteHobby', async (id: numb
 })
 
 export const updateHobby = createAsyncThunk('hobby/updateHobby', async (changedHobby: Hobby) => {
-  const response =  await axios.put(`https://capstone-backend-v0ob.onrender.com/hobbies/${changedHobby.id}`, changedHobby)
-  const updatedHobby = response.data[0]
-  return {id: changedHobby.id, changes: { id: parseInt(updatedHobby.id), name: updatedHobby.name, description: updatedHobby.description, specs: updatedHobby.specs, aspectscores: updatedHobby.aspectscores, keywords: updatedHobby.keywords, resources: updatedHobby.resources }}
+  console.log("Pre-fetch updateHobby: ", changedHobby)
+  let data = await axios.put(`https://capstone-backend-v0ob.onrender.com/hobbies/${changedHobby.id}`, changedHobby).then((response: any) => {
+    return response.data[0]
+    // console.log("UpdateHobby dispatched response: ", response)
+    // const updatedHobby: Hobby = response.data[0]
+    // return updatedHobby
+    // return {id: changedHobby.id, changes: { id: updatedHobby.id, name: updatedHobby.name, description: updatedHobby.description, specs: updatedHobby.specs, aspectscores: updatedHobby.aspectscores, keywords: updatedHobby.keywords, resources: updatedHobby.resources }}
+  })
+  return data
 })
 
 export const addHobby = createAsyncThunk('hobby/addHobby', async (newHobby: IdlessHobby) => {
@@ -110,7 +116,7 @@ export const hobbySlice = createSlice({
       state.status = 'idle'
       hobbyAdapter.removeOne(state, payload)
     })
-    .addCase(updateHobby.pending, (state, action) => {
+    .addCase(updateHobby.pending, (state) => {
       state.status = 'loading'
     })
     .addCase(updateHobby.fulfilled, (state, { payload }) => {
