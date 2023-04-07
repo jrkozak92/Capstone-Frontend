@@ -67,13 +67,14 @@ export const deleteHobby = createAsyncThunk('hobby/deleteHobby', async (id: numb
 
 export const updateHobby = createAsyncThunk('hobby/updateHobby', async (changedHobby: Hobby) => {
   console.log("Pre-fetch updateHobby: ", changedHobby)
-  return await axios.put(`https://capstone-backend-v0ob.onrender.com/hobbies/${changedHobby.id}`, changedHobby).then((response: any) => {
+  let data = await axios.put(`https://capstone-backend-v0ob.onrender.com/hobbies/${changedHobby.id}`, changedHobby).then((response: any) => {
     return response.data[0]
     // console.log("UpdateHobby dispatched response: ", response)
     // const updatedHobby: Hobby = response.data[0]
     // return updatedHobby
     // return {id: changedHobby.id, changes: { id: updatedHobby.id, name: updatedHobby.name, description: updatedHobby.description, specs: updatedHobby.specs, aspectscores: updatedHobby.aspectscores, keywords: updatedHobby.keywords, resources: updatedHobby.resources }}
   })
+  return data
 })
 
 export const addHobby = createAsyncThunk('hobby/addHobby', async (newHobby: IdlessHobby) => {

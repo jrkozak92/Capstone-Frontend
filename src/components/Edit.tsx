@@ -53,7 +53,7 @@ const Edit = ():any => {
     }
   }
 
-  const handleSubmit = (event: any, updatedHobbyObj: Mutable<Hobby>) => {
+  const handleSubmit = async (event: any, updatedHobbyObj: Mutable<Hobby>) => {
     event.preventDefault()
     if (changeStatus){
       if (typeof updatedHobbyObj.keywords !== 'string'){
@@ -62,7 +62,7 @@ const Edit = ():any => {
       if (typeof updatedHobbyObj.resources !== 'string'){
         updatedHobbyObj.resources = updatedHobbyObj.resources.join(', ')
       }
-      dispatch(updateHobby(updatedHobbyObj))
+      await dispatch(updateHobby(updatedHobbyObj))
     }
     navigate(`/hobbies/${hobbyId}`)
   }
